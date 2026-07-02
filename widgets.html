@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Widgets Ecommerce Kit · 24 patrones para Mohicano · Digitals</title>
+<meta name="description" content="Biblioteca de 24 widgets ecommerce curados de los mejores retailers del mundo. Cada uno con demo vivo, justificación por marca y código copy-paste.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="assets/logos/mohicano-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;
+  --ink-2:#141212;
+  --paper:#f8f5f0;
+  --lime:#c8e04a;
+  --orange:#ee9a00;
+  --hot:#ff3d00;
+  --line:rgba(248,245,240,.08);
+  --line-strong:rgba(248,245,240,.16);
+  --f-display:'Fraunces',Georgia,serif;
+  --f-sans:'Manrope',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.15,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;max-width:100vw}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01"}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-variation-settings:"opsz" 144;font-weight:300;letter-spacing:-.024em;line-height:1.05}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+::selection{background:var(--lime);color:var(--ink)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.7);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.7)}
+.nav-brand strong{color:var(--paper);font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.3rem;letter-spacing:-.02em;text-transform:none}
+.nav-links{display:flex;gap:22px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.55)}
+.nav-links a:hover{color:var(--lime)}
+@media(max-width:900px){ .nav-links{display:none} }
+
+/* HERO */
+.hero{padding:140px 32px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 20%,rgba(200,224,74,.10),transparent 60%),radial-gradient(ellipse 50% 30% at 50% 80%,rgba(238,154,0,.06),transparent 60%);pointer-events:none}
+.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.hero .kicker{display:inline-flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--lime);margin-bottom:36px}
+.hero .kicker::before,.hero .kicker::after{content:'';width:32px;height:1px;background:var(--lime)}
+.hero h1{font-family:var(--f-display);font-weight:300;font-size:clamp(2.6rem,7vw,6rem);color:var(--paper);margin-bottom:26px}
+.hero h1 em{font-style:italic;color:var(--orange)}
+.hero p{font-family:var(--f-sans);font-weight:300;font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.55;color:rgba(248,245,240,.7);max-width:56ch;margin:0 auto}
+
+.hero-stats{display:flex;justify-content:center;gap:60px;margin-top:60px;flex-wrap:wrap;padding-top:44px;border-top:1px solid var(--line)}
+.hs-stat{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.5);text-align:center}
+.hs-stat strong{display:block;font-family:var(--f-display);font-weight:300;font-style:italic;font-size:2.4rem;color:var(--lime);line-height:1;margin-bottom:8px;text-transform:none;letter-spacing:-.02em}
+
+/* CATEGORY NAV */
+.cat-nav{position:sticky;top:63px;z-index:50;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:16px 32px;overflow-x:auto}
+.cat-nav-inner{max-width:1400px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap;white-space:nowrap}
+.cat-chip{padding:10px 20px;border:1px solid var(--line-strong);border-radius:100px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.62);cursor:pointer;transition:.3s ease;white-space:nowrap}
+.cat-chip:hover{border-color:var(--lime);color:var(--lime)}
+.cat-chip.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+
+/* WIDGET CATEGORY SECTION */
+.cat-sec{padding:80px 32px;border-top:1px solid var(--line)}
+.cat-sec-inner{max-width:1400px;margin:0 auto}
+.cat-h{margin-bottom:60px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.cat-h-l h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4vw,3.4rem);color:var(--paper);letter-spacing:-.024em}
+.cat-h-l h2 em{font-style:italic;color:var(--orange)}
+.cat-h-l p{font-family:var(--f-sans);font-weight:300;font-size:.98rem;line-height:1.55;color:rgba(248,245,240,.6);margin-top:12px;max-width:52ch}
+.cat-h-r{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.4)}
+
+.widget-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:900px){.widget-grid{grid-template-columns:1fr}}
+
+/* WIDGET CARD */
+.wg{background:var(--ink-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:.5s var(--ease);position:relative}
+.wg:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+.wg-head{padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:1px solid var(--line)}
+.wg-num{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(248,245,240,.4);margin-bottom:6px}
+.wg-name{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.4rem;color:var(--paper);line-height:1.15;letter-spacing:-.018em}
+.wg-tag{padding:6px 12px;background:rgba(200,224,74,.08);border:1px solid rgba(200,224,74,.28);border-radius:100px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);align-self:flex-start;white-space:nowrap}
+
+/* DEMO area */
+.wg-demo{padding:0;min-height:220px;background:linear-gradient(180deg,rgba(200,224,74,.02),transparent);position:relative;overflow:hidden;display:grid;place-items:center}
+.wg-demo > div, .wg-demo > article, .wg-demo > form { max-width:95%; }
+
+/* Justification */
+.wg-just{padding:22px 26px;background:rgba(248,245,240,.02);border-top:1px solid var(--line)}
+.wg-brands{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.wg-brand{padding:4px 10px;background:rgba(248,245,240,.05);border:1px solid var(--line);border-radius:100px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,245,240,.65)}
+.wg-why{font-family:var(--f-sans);font-weight:300;font-size:.86rem;line-height:1.55;color:rgba(248,245,240,.7)}
+.wg-why strong{color:var(--lime);font-weight:500}
+.wg-metric{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.5)}
+.wg-metric strong{color:var(--orange);font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.6rem;letter-spacing:-.02em;line-height:1;text-transform:none}
+
+/* CODE toggle */
+.wg-code-toggle{padding:10px 20px;background:transparent;border-top:1px solid var(--line);width:100%;text-align:left;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.55);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s ease}
+.wg-code-toggle:hover{background:rgba(248,245,240,.03);color:var(--lime)}
+.wg-code-toggle::after{content:'+';font-size:1rem;color:var(--lime)}
+.wg-code-toggle.on::after{content:'×'}
+.wg-code{max-height:0;overflow:hidden;transition:max-height .5s var(--ease);background:#050505;font-family:var(--f-mono);font-size:.76rem;color:rgba(248,245,240,.75)}
+.wg-code.on{max-height:800px}
+.wg-code pre{padding:20px 26px;overflow-x:auto;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.wg-code pre .k{color:var(--lime)}
+.wg-code pre .s{color:var(--orange)}
+.wg-code pre .c{color:rgba(248,245,240,.35);font-style:italic}
+
+/* ==================================================
+   WIDGET DEMO STYLES · reusables por categoría
+   ================================================== */
+
+/* W01 · Sticky ATC */
+.dm-stickyATC{width:100%;padding:12px 18px;background:var(--ink);border:1px solid var(--line-strong);display:flex;align-items:center;gap:14px;border-radius:6px}
+.dm-stickyATC img{width:52px;height:64px;object-fit:cover;border-radius:4px}
+.dm-stickyATC .n{flex:1;font-family:var(--f-display);font-style:italic;font-size:.98rem;color:var(--paper)}
+.dm-stickyATC .n span{display:block;font-family:var(--f-mono);font-size:.62rem;color:rgba(248,245,240,.55);font-style:normal;letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.dm-stickyATC .p{font-family:var(--f-mono);font-size:.86rem;font-weight:600;color:var(--paper);margin-right:6px}
+.dm-stickyATC button{background:var(--lime);color:var(--ink);padding:12px 18px;border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase}
+.dm-stickyATC button:hover{background:var(--paper)}
+
+/* W02 · Free-Ship Progress */
+.dm-freeship{width:min(340px,90%);text-align:center}
+.dm-freeship-lbl{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.65);margin-bottom:12px}
+.dm-freeship-lbl strong{color:var(--lime)}
+.dm-freeship-bar{height:6px;background:var(--line-strong);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.dm-freeship-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--lime));border-radius:3px;width:0%;animation:fsFill 3s ease-in-out infinite alternate}
+@keyframes fsFill{0%{width:20%}100%{width:78%}}
+.dm-freeship-note{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,245,240,.45)}
+
+/* W03 · Urgency badge */
+.dm-urgency{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.dm-urgency .sz{width:44px;height:44px;background:rgba(248,245,240,.06);border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;font-family:var(--f-mono);font-size:.8rem;font-weight:600;position:relative;color:var(--paper)}
+.dm-urgency .sz.low{border-color:var(--hot)}
+.dm-urgency .sz.low::after{content:'!';position:absolute;top:-6px;right:-6px;width:16px;height:16px;background:var(--hot);color:var(--paper);border-radius:50%;font-size:.6rem;line-height:16px;font-weight:700}
+.dm-urgency .sz.sold{opacity:.35;text-decoration:line-through}
+
+/* W04 · Drop Countdown */
+.dm-timer{display:flex;gap:12px;font-family:var(--f-mono)}
+.dm-timer .c{padding:14px 16px;background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;min-width:60px;text-align:center}
+.dm-timer .c strong{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.4rem;color:var(--lime);display:block;line-height:1;letter-spacing:-.02em}
+.dm-timer .c span{font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.5);margin-top:6px;display:block}
+
+/* W05 · Filters chips */
+.dm-filters{display:flex;flex-wrap:wrap;gap:6px;max-width:320px}
+.dm-filters .f{padding:8px 14px;border:1px solid var(--line-strong);border-radius:100px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,245,240,.65);cursor:pointer;transition:.2s ease}
+.dm-filters .f.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.dm-filters .f:hover:not(.on){border-color:var(--lime);color:var(--lime)}
+
+/* W06 · Mega-menu preview */
+.dm-mega{width:min(320px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dm-mega-l{display:flex;flex-direction:column;gap:6px}
+.dm-mega-l a{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,245,240,.7);padding:4px 0;cursor:pointer}
+.dm-mega-l a:hover, .dm-mega-l a.on{color:var(--lime)}
+.dm-mega-r{background:linear-gradient(135deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:4px;padding:14px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,245,240,.5);text-align:center;display:grid;place-items:center}
+
+/* W07 · Search autocomplete */
+.dm-search{width:min(300px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden}
+.dm-search-in{padding:12px 16px;font-family:var(--f-mono);font-size:.72rem;color:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.dm-search-in::before{content:'🔍';filter:grayscale(1) brightness(1.5);opacity:.7}
+.dm-search-in span{color:rgba(248,245,240,.5)}
+.dm-search-in em{color:var(--lime);font-style:normal;border-right:1px solid var(--lime);animation:cursor 1s infinite}
+@keyframes cursor{50%{border-color:transparent}}
+.dm-search-r{padding:8px 0}
+.dm-search-r-item{padding:8px 16px;display:flex;align-items:center;gap:10px;font-family:var(--f-sans);font-size:.78rem;color:rgba(248,245,240,.75);cursor:pointer;transition:.2s ease}
+.dm-search-r-item:hover{background:rgba(200,224,74,.05);color:var(--lime)}
+.dm-search-r-item .p{margin-left:auto;font-family:var(--f-mono);font-size:.64rem;color:rgba(248,245,240,.5)}
+
+/* W08 · Recently Viewed */
+.dm-recent{display:flex;gap:8px}
+.dm-recent img{width:64px;height:80px;object-fit:cover;border-radius:4px;border:1px solid var(--line);transition:.2s ease}
+.dm-recent img:hover{transform:translateY(-3px);border-color:var(--lime)}
+
+/* W09 · Image swap */
+.dm-swap{width:180px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;position:relative;cursor:pointer;border:1px solid var(--line)}
+.dm-swap img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .5s ease}
+.dm-swap img:last-child{opacity:0}
+.dm-swap:hover img:first-child{opacity:0}
+.dm-swap:hover img:last-child{opacity:1}
+.dm-swap::after{content:'Hover';position:absolute;bottom:8px;left:8px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.5);padding:3px 8px;border-radius:3px}
+
+/* W10 · Quick view */
+.dm-qv{position:relative;width:170px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;border:1px solid var(--line);cursor:pointer}
+.dm-qv img{width:100%;height:100%;object-fit:cover}
+.dm-qv-btn{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(248,245,240,.9);color:var(--ink);padding:8px;border-radius:4px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;transform:translateY(140%);transition:.3s var(--ease)}
+.dm-qv:hover .dm-qv-btn{transform:none}
+
+/* W11 · Zoom on hover */
+.dm-zoom{width:200px;aspect-ratio:1;border-radius:6px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;position:relative}
+.dm-zoom img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--ease)}
+.dm-zoom:hover img{transform:scale(2.1);transform-origin:60% 40%}
+
+/* W12 · Size AI */
+.dm-sizeai{width:min(320px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;padding:18px}
+.dm-sizeai-h{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.6);margin-bottom:12px}
+.dm-sizeai-inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.dm-sizeai-inputs input{background:var(--ink-2);border:1px solid var(--line);padding:8px 10px;font-family:var(--f-mono);font-size:.72rem;color:var(--paper);border-radius:4px}
+.dm-sizeai-inputs input:focus{outline:0;border-color:var(--lime)}
+.dm-sizeai-result{padding:14px;background:rgba(200,224,74,.06);border:1px solid rgba(200,224,74,.24);border-radius:4px;text-align:center}
+.dm-sizeai-result strong{display:block;font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.8rem;color:var(--lime);letter-spacing:-.02em}
+.dm-sizeai-result span{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.55);margin-top:4px;display:block}
+
+/* W13 · Reviews with photos */
+.dm-reviews{width:min(340px,90%)}
+.dm-review{padding:12px;background:var(--ink);border:1px solid var(--line);border-radius:6px;display:flex;gap:12px;margin-bottom:8px}
+.dm-review-thumb{width:56px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0}
+.dm-review-b{flex:1}
+.dm-review-stars{color:var(--orange);font-size:.78rem;letter-spacing:.06em}
+.dm-review-name{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,245,240,.7);margin:4px 0}
+.dm-review-txt{font-family:var(--f-sans);font-size:.72rem;color:rgba(248,245,240,.75);line-height:1.45;font-style:italic}
+
+/* W14 · Announcement rotativa */
+.dm-annc{width:min(360px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;height:44px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.dm-annc-slide{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper);animation:anncSlide 12s ease-in-out infinite;opacity:0}
+.dm-annc-slide:nth-child(1){animation-delay:0s}
+.dm-annc-slide:nth-child(2){animation-delay:4s}
+.dm-annc-slide:nth-child(3){animation-delay:8s}
+@keyframes anncSlide{0%,5%{transform:translateY(30px);opacity:0}10%,30%{transform:none;opacity:1}35%,100%{transform:translateY(-30px);opacity:0}}
+.dm-annc-slide strong{color:var(--lime);margin-right:6px}
+
+/* W15 · Instagram feed */
+.dm-ig{display:grid;grid-template-columns:repeat(3,60px);gap:4px}
+.dm-ig div{aspect-ratio:1;background:linear-gradient(135deg,var(--orange),var(--hot));border-radius:2px;transition:.2s ease}
+.dm-ig div:hover{transform:scale(1.06);z-index:2;position:relative}
+.dm-ig div:nth-child(2){background:linear-gradient(135deg,var(--lime),var(--orange))}
+.dm-ig div:nth-child(3){background:linear-gradient(135deg,var(--hot),#7a1e10)}
+.dm-ig div:nth-child(4){background:linear-gradient(135deg,#3a4b7a,var(--lime))}
+.dm-ig div:nth-child(5){background:linear-gradient(135deg,var(--orange),var(--lime))}
+.dm-ig div:nth-child(6){background:linear-gradient(135deg,#5a3020,var(--orange))}
+.dm-ig div:nth-child(7){background:linear-gradient(135deg,var(--lime),#3a4b7a)}
+.dm-ig div:nth-child(8){background:linear-gradient(135deg,var(--paper),var(--orange))}
+.dm-ig div:nth-child(9){background:linear-gradient(135deg,var(--hot),var(--lime))}
+
+/* W16 · Cart drawer teaser */
+.dm-cd{width:200px;height:220px;background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.dm-cd-h{padding:10px 14px;background:rgba(248,245,240,.03);font-family:var(--f-mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper);border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.dm-cd-b{flex:1;padding:10px 14px;font-family:var(--f-mono);font-size:.62rem;color:rgba(248,245,240,.6)}
+.dm-cd-item{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.dm-cd-item .th{width:28px;height:36px;background:linear-gradient(135deg,#3a2818,var(--orange));border-radius:2px}
+.dm-cd-item .n{font-family:var(--f-display);font-style:italic;font-size:.7rem;color:var(--paper)}
+.dm-cd-f{padding:8px 14px;border-top:1px solid var(--line);background:rgba(200,224,74,.06);font-family:var(--f-mono);font-size:.62rem;color:var(--lime);text-align:center;font-weight:600}
+
+/* W17 · Wishlist heart */
+.dm-wish{display:flex;gap:20px;align-items:center}
+.dm-wish-btn{width:52px;height:52px;border-radius:50%;background:rgba(248,245,240,.06);border:1px solid var(--line-strong);display:grid;place-items:center;cursor:pointer;transition:.3s ease}
+.dm-wish-btn svg{width:22px;height:22px;stroke:var(--paper);fill:none;stroke-width:1.6;transition:.3s ease}
+.dm-wish-btn.on{background:rgba(255,61,0,.14);border-color:var(--hot)}
+.dm-wish-btn.on svg{fill:var(--hot);stroke:var(--hot);animation:wishPop .5s var(--ease)}
+@keyframes wishPop{50%{transform:scale(1.3)}}
+.dm-wish-lbl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.6)}
+
+/* W18 · Newsletter timed */
+.dm-news{width:min(320px,90%);background:linear-gradient(135deg,var(--ink),var(--ink-2));border:1px solid var(--line-strong);border-radius:6px;padding:22px;text-align:center;position:relative}
+.dm-news-x{position:absolute;top:8px;right:12px;font-family:var(--f-mono);color:rgba(248,245,240,.4);font-size:1rem;cursor:pointer}
+.dm-news h4{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.3rem;color:var(--paper);margin-bottom:10px;letter-spacing:-.02em}
+.dm-news p{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.55);margin-bottom:14px}
+.dm-news p strong{color:var(--lime);font-size:1rem;letter-spacing:.02em;font-family:var(--f-display);font-weight:400}
+.dm-news input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line-strong);padding:8px 0;font-family:var(--f-sans);font-size:.86rem;color:var(--paper);text-align:center;margin-bottom:12px}
+.dm-news button{background:var(--lime);color:var(--ink);padding:10px 20px;border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+
+/* W19 · 3D viewer */
+.dm-3d{width:180px;height:180px;background:radial-gradient(circle at 40% 40%,var(--ink-2),var(--ink));border:1px solid var(--line-strong);border-radius:50%;position:relative;overflow:hidden;cursor:grab}
+.dm-3d::before{content:'';position:absolute;inset:20%;border-radius:50%;background:conic-gradient(from 0deg,var(--orange),var(--lime),var(--hot),var(--orange));animation:rotate 8s linear infinite;filter:blur(6px);opacity:.7}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.dm-3d::after{content:'360°';position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.22em;color:var(--paper);z-index:2}
+.dm-3d-lbl{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.5);margin-top:12px;text-align:center}
+
+/* W20 · Look shopper */
+.dm-look{width:200px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;position:relative;border:1px solid var(--line);background:#0f0d0a}
+.dm-look img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.dm-look-dot{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--lime);cursor:pointer;box-shadow:0 0 0 6px rgba(200,224,74,.2);animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{50%{box-shadow:0 0 0 12px rgba(200,224,74,0)}}
+.dm-look-dot:hover{transform:scale(1.3)}
+.dm-look-dot.d1{top:30%;left:40%}
+.dm-look-dot.d2{top:65%;left:52%;animation-delay:.6s}
+.dm-look-dot.d3{top:82%;left:38%;animation-delay:1.2s}
+
+/* W21 · Sticky look panel */
+.dm-look-panel{width:min(300px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;padding:16px}
+.dm-look-panel-h{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);margin-bottom:14px;display:flex;justify-content:space-between}
+.dm-look-panel-items{display:flex;gap:6px}
+.dm-look-panel-items div{flex:1;aspect-ratio:3/4;background:linear-gradient(135deg,#3a2818,var(--orange));border-radius:4px}
+.dm-look-panel-items div:nth-child(2){background:linear-gradient(135deg,#26314a,var(--lime))}
+.dm-look-panel-items div:nth-child(3){background:linear-gradient(135deg,#5a1d26,var(--hot))}
+.dm-look-panel-tot{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em}
+.dm-look-panel-tot strong{color:var(--lime)}
+
+/* W22 · Live video shopping */
+.dm-video{width:min(240px,90%);background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;padding:16px;text-align:center}
+.dm-video-live{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--hot);margin-bottom:12px;padding:3px 10px;background:rgba(255,61,0,.1);border-radius:100px}
+.dm-video-live::before{content:'';width:6px;height:6px;background:var(--hot);border-radius:50%;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.3}}
+.dm-video h5{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.05rem;color:var(--paper);margin-bottom:12px;letter-spacing:-.02em}
+.dm-video button{background:var(--lime);color:var(--ink);padding:10px 20px;border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase}
+
+/* W23 · Loyalty bar */
+.dm-loy{width:min(320px,90%);padding:16px 20px;background:linear-gradient(135deg,var(--ink),var(--ink-2));border:1px solid rgba(197,168,120,.3);border-radius:6px}
+.dm-loy-h{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,245,240,.65);margin-bottom:8px}
+.dm-loy-h strong{color:#c5a878}
+.dm-loy-bar{height:4px;background:var(--line-strong);border-radius:2px;overflow:hidden;margin-bottom:8px}
+.dm-loy-fill{height:100%;background:linear-gradient(90deg,#c5a878,var(--lime));border-radius:2px;width:0%;animation:loyFill 4s ease-in-out infinite alternate}
+@keyframes loyFill{0%{width:15%}100%{width:68%}}
+.dm-loy-p{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,245,240,.5)}
+
+/* W24 · AR try-on */
+.dm-ar{width:180px;height:180px;background:var(--ink);border:1px solid var(--line-strong);border-radius:6px;position:relative;overflow:hidden;display:grid;place-items:center;cursor:pointer}
+.dm-ar::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(200,224,74,.15),transparent 60%);animation:arScan 3s ease-in-out infinite}
+@keyframes arScan{50%{transform:scale(1.2)}}
+.dm-ar-inner{position:relative;text-align:center;z-index:2}
+.dm-ar-inner svg{width:44px;height:44px;stroke:var(--lime);fill:none;stroke-width:1.4;margin-bottom:10px}
+.dm-ar-inner strong{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lime)}
+.dm-ar-inner span{display:block;font-family:var(--f-mono);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.5);margin-top:6px}
+
+/* FOOTER */
+.foot{padding:80px 32px 40px;text-align:center;border-top:1px solid var(--line)}
+.foot h3{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:2rem;color:var(--paper);margin-bottom:16px;letter-spacing:-.02em}
+.foot p{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(248,245,240,.4);line-height:1.9}
+.foot p a{color:var(--lime)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"><span>Kit</span> · <strong>Widgets Ecommerce</strong></div>
+  <div class="nav-links">
+    <a href="#conv">Conversion</a>
+    <a href="#disc">Discovery</a>
+    <a href="#pdp">PDP</a>
+    <a href="#trust">Trust</a>
+    <a href="#ret">Retention</a>
+    <a href="#exp">Experience</a>
+    <a href="/">← Volver</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Ecommerce Widgets Kit · Mohicano 2026</div>
+    <h1>24 patrones que hoy <em>convierten</em>.</h1>
+    <p>Curados uno por uno de los ecommerce top del mundo. Cada widget con demo en vivo, código para copiar, justificación de por qué funciona y qué marca lo usa hoy. Todo pensado para engancharse limpio al ADN de Mohicano.</p>
+    <div class="hero-stats">
+      <div class="hs-stat"><strong>24</strong>Widgets</div>
+      <div class="hs-stat"><strong>6</strong>Categorías</div>
+      <div class="hs-stat"><strong>+18</strong>Marcas ref</div>
+      <div class="hs-stat"><strong>100%</strong>Vanilla JS</div>
+    </div>
+  </div>
+</section>
+
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#conv" class="cat-chip">1 · Conversion Boosters</a>
+    <a href="#disc" class="cat-chip">2 · Discovery</a>
+    <a href="#pdp" class="cat-chip">3 · Product Page</a>
+    <a href="#trust" class="cat-chip">4 · Trust</a>
+    <a href="#ret" class="cat-chip">5 · Retention</a>
+    <a href="#exp" class="cat-chip">6 · Experience WOW</a>
+  </div>
+</nav>
+
+<!-- CATEGORÍA 1 · CONVERSION -->
+<section class="cat-sec" id="conv">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>01</em> · Conversion Boosters</h2>
+        <p>Los 4 patrones que empujan directo al carrito sin ser agresivos. Convierten intención en decisión.</p>
+      </div>
+      <div class="cat-h-r">4 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W01 · Sticky ATC -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W01 · Conversion</div><div class="wg-name">Sticky Add-to-Cart Bar</div></div>
+          <div class="wg-tag">+15-25% conv</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-stickyATC">
+            <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Palazzo Rosie">
+            <div class="n">Palazzo Rosie<span>Talla 40 · $48.591</span></div>
+            <button>+ Agregar</button>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Kith</span><span class="wg-brand">Aimé Leon Dore</span><span class="wg-brand">Todd Snyder</span></div>
+          <div class="wg-why">Aparece en scroll cuando el CTA principal de PDP sale del viewport. <strong>Nunca pierdes el CTA</strong>. Ideal para PDPs largas con storytelling — el usuario puede scrollear tranquilo sin miedo a "perder" el botón.</div>
+          <div class="wg-metric"><strong>+22%</strong>Add-to-cart en PDP</div>
+        </div>
+        <button class="wg-code-toggle" onclick="this.nextElementSibling.classList.toggle('on');this.classList.toggle('on')">Ver código</button>
+        <div class="wg-code"><pre><span class="c">/* Aparece en scroll cuando main-CTA sale de viewport */</span>
+<span class="k">const</span> mainCTA = document.querySelector(<span class="s">'.pdp-cta'</span>);
+<span class="k">new</span> IntersectionObserver(([e]) => {
+  document.querySelector(<span class="s">'.sticky-atc'</span>).classList.toggle(<span class="s">'on'</span>, !e.isIntersecting);
+}).observe(mainCTA);</pre></div>
+      </div>
+
+      <!-- W02 · Free-ship progress -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W02 · Conversion</div><div class="wg-name">Free-Ship Progress Bar</div></div>
+          <div class="wg-tag">+12-18% AOV</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-freeship">
+            <div class="dm-freeship-lbl">Te faltan <strong>$12.400</strong> para envío gratis</div>
+            <div class="dm-freeship-bar"><div class="dm-freeship-fill"></div></div>
+            <div class="dm-freeship-note">Meta: $49.000 · Actual: $36.600</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Nordstrom</span><span class="wg-brand">Sephora</span><span class="wg-brand">ASOS</span></div>
+          <div class="wg-why">Aparece en el mini-cart. El usuario que ya tiene intent alto ve un objetivo específico y concreto para subir su ticket. <strong>Incentivo puro sin sentirse manipulador</strong>.</div>
+          <div class="wg-metric"><strong>+15%</strong>Ticket promedio</div>
+        </div>
+        <button class="wg-code-toggle" onclick="this.nextElementSibling.classList.toggle('on');this.classList.toggle('on')">Ver código</button>
+        <div class="wg-code"><pre><span class="k">const</span> FREE_SHIP = <span class="s">49000</span>;
+<span class="k">function</span> renderProgress(subtotal){
+  <span class="k">const</span> pct = Math.min(<span class="s">100</span>, (subtotal / FREE_SHIP) * <span class="s">100</span>);
+  bar.style.width = pct + <span class="s">'%'</span>;
+  lbl.innerHTML = subtotal &gt;= FREE_SHIP
+    ? <span class="s">'✓ Envío gratis desbloqueado'</span>
+    : <span class="s">`Te faltan </span>${MHC.formatCLP(FREE_SHIP-subtotal)}<span class="s"> para envío gratis`</span>;
+}</pre></div>
+      </div>
+
+      <!-- W03 · Urgency low-stock -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W03 · Conversion</div><div class="wg-name">"Only X Left" Urgency</div></div>
+          <div class="wg-tag">+8-12% conv</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-urgency">
+            <div class="sz">36</div>
+            <div class="sz">38</div>
+            <div class="sz low">40</div>
+            <div class="sz">42</div>
+            <div class="sz sold">44</div>
+            <div class="sz">46</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Nike</span><span class="wg-brand">Uniqlo</span><span class="wg-brand">Booking</span></div>
+          <div class="wg-why">Solo se muestra si es <strong>escasez auténtica</strong> (stock &lt; 4 unidades). La talla 40 tiene 3 disponibles → badge naranja. Talla 44 agotada → tachada. Cero manipulación, información pura.</div>
+          <div class="wg-metric"><strong>+10%</strong>Cierre en PDP</div>
+        </div>
+        <button class="wg-code-toggle" onclick="this.nextElementSibling.classList.toggle('on');this.classList.toggle('on')">Ver código</button>
+        <div class="wg-code"><pre>sizes.forEach(sz => {
+  <span class="k">const</span> qty = product.stock[sz];
+  <span class="k">if</span> (qty === <span class="s">0</span>) el.classList.add(<span class="s">'sold'</span>);
+  <span class="k">else if</span> (qty &lt; <span class="s">4</span>) el.classList.add(<span class="s">'low'</span>);
+});</pre></div>
+      </div>
+
+      <!-- W04 · Drop Countdown -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W04 · Conversion</div><div class="wg-name">Drop Countdown Timer</div></div>
+          <div class="wg-tag">FOMO real</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-timer">
+            <div class="c"><strong id="wgd">14</strong><span>Días</span></div>
+            <div class="c"><strong id="wgh">08</strong><span>Hrs</span></div>
+            <div class="c"><strong id="wgm">42</strong><span>Min</span></div>
+            <div class="c"><strong id="wgs">17</strong><span>Seg</span></div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Supreme</span><span class="wg-brand">Palace</span><span class="wg-brand">Kith Monday</span></div>
+          <div class="wg-why">Perfecto para las <strong>colecciones numeradas</strong> de Mohicano — cada drop (43, 44, 45) se convierte en un evento con hora exacta. Supreme entrenó a millones de fans para conectarse los jueves a las 11 AM ET.</div>
+          <div class="wg-metric"><strong>10x</strong>Tráfico al drop</div>
+        </div>
+        <button class="wg-code-toggle" onclick="this.nextElementSibling.classList.toggle('on');this.classList.toggle('on')">Ver código</button>
+        <div class="wg-code"><pre><span class="k">const</span> target = <span class="k">new</span> Date(<span class="s">'2026-08-15T20:00:00-04:00'</span>);
+setInterval(() => {
+  <span class="k">const</span> d = target - <span class="k">new</span> Date();
+  td.textContent = Math.floor(d / <span class="s">86400000</span>);
+  th.textContent = Math.floor(d / <span class="s">3600000</span>) % <span class="s">24</span>;
+  <span class="c">/* ... */</span>
+}, <span class="s">1000</span>);</pre></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 2 · DISCOVERY -->
+<section class="cat-sec" id="disc">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>02</em> · Discovery</h2>
+        <p>Ayudan al usuario a encontrar exactamente lo que busca — o descubrir lo que no sabía que quería.</p>
+      </div>
+      <div class="cat-h-r">4 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W05 · Filters -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W05 · Discovery</div><div class="wg-name">Smart Filters Sidebar</div></div>
+          <div class="wg-tag">3x conv</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-filters">
+            <div class="f on">Flare (12)</div><div class="f">Palazzo (8)</div><div class="f">Skinny (7)</div><div class="f">Wide (5)</div><div class="f">Cargo (3)</div><div class="f">Talla 40</div><div class="f">Push Up</div><div class="f">Indigo</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">SSENSE</span><span class="wg-brand">MyTheresa</span><span class="wg-brand">Farfetch</span></div>
+          <div class="wg-why">Cada filtro con <strong>contador de resultados</strong>. Usuarios con criterio específico convierten 3x más que browsers casuales. Colapsible para no ocupar viewport en mobile.</div>
+          <div class="wg-metric"><strong>3x</strong>Conv vs browse</div>
+        </div>
+      </div>
+
+      <!-- W06 · Mega-menu -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W06 · Discovery</div><div class="wg-name">Mega-Menu con Preview</div></div>
+          <div class="wg-tag">−2 clicks</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-mega">
+            <div class="dm-mega-l">
+              <a class="on">Flare</a><a>Palazzo</a><a>Wide Leg</a><a>Skinny</a><a>Cargo</a>
+            </div>
+            <div class="dm-mega-r">Vista previa<br>Flare · 12 modelos</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Nike</span><span class="wg-brand">Adidas</span><span class="wg-brand">Zara</span></div>
+          <div class="wg-why">Al hacer hover en una categoría, muestra una <strong>preview visual + productos destacados</strong>. Reduce clicks de 3 a 1 para llegar al producto correcto.</div>
+          <div class="wg-metric"><strong>−45%</strong>Bounce en cat</div>
+        </div>
+      </div>
+
+      <!-- W07 · Search autocomplete -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W07 · Discovery</div><div class="wg-name">Search Autocomplete</div></div>
+          <div class="wg-tag">5x conv</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-search">
+            <div class="dm-search-in"><span>rosi</span><em>|</em></div>
+            <div class="dm-search-r">
+              <div class="dm-search-r-item">Palazzo Rosie <span class="p">$48.591</span></div>
+              <div class="dm-search-r-item">Flare Rosie 2 <span class="p">$47.691</span></div>
+              <div class="dm-search-r-item">Rosie Curva Alta <span class="p">$52.990</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">ASOS</span><span class="wg-brand">Zalando</span><span class="wg-brand">Amazon</span></div>
+          <div class="wg-why">Al escribir "rosi" ya aparecen sugerencias con imagen mini + precio. <strong>Usuarios que usan search convierten 4-5x más</strong> que browsers — hacerlo instantáneo elimina el drop-off.</div>
+          <div class="wg-metric"><strong>5x</strong>Conv de search</div>
+        </div>
+      </div>
+
+      <!-- W08 · Recently viewed -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W08 · Discovery</div><div class="wg-name">Recently Viewed Rail</div></div>
+          <div class="wg-tag">Recuperación</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-recent">
+            <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Rosie">
+            <img src="assets/products/flare-chocolate-4361-04.jpg" alt="Flare choc">
+            <img src="assets/products/skinny-agatha-4015-01.jpg" alt="Ágatha">
+            <img src="assets/products/wide-leg-4325-01.jpg" alt="Wide">
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Amazon</span><span class="wg-brand">Farfetch</span><span class="wg-brand">SSENSE</span></div>
+          <div class="wg-why">Muchas usuarias de denim investigan varias sesiones antes de comprar. Recently Viewed rescata <strong>intent perdido</strong> — vuelven, ven lo mismo, cierran. Persiste con localStorage.</div>
+          <div class="wg-metric"><strong>+18%</strong>Return conv</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 3 · PDP -->
+<section class="cat-sec" id="pdp">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>03</em> · Product Page</h2>
+        <p>Elementos que hacen que la página de producto convierta más — y reduzcan las devoluciones.</p>
+      </div>
+      <div class="cat-h-r">4 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W09 · Image swap -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W09 · PDP</div><div class="wg-name">Image Swap on Hover</div></div>
+          <div class="wg-tag">+CTR</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-swap">
+            <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Front">
+            <img src="assets/products/flare-chocolate-4361-04.jpg" alt="Back">
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Zara</span><span class="wg-brand">H&M</span><span class="wg-brand">Massimo Dutti</span></div>
+          <div class="wg-why">Hover cambia a la 2ª foto (usualmente el back del garment o styling completo). <strong>Ver más sin clickear</strong> aumenta CTR a PDP y reduce devoluciones porque la usuaria vio ambos ángulos antes de comprar.</div>
+          <div class="wg-metric"><strong>+30%</strong>CTR a PDP</div>
+        </div>
+      </div>
+
+      <!-- W10 · Quick view -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W10 · PDP</div><div class="wg-name">Quick View Modal</div></div>
+          <div class="wg-tag">Sin dejar lista</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-qv">
+            <img src="assets/products/skinny-agatha-4015-01.jpg" alt="QV">
+            <div class="dm-qv-btn">Vista Rápida</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Palace</span><span class="wg-brand">Off-White</span><span class="wg-brand">Kith</span></div>
+          <div class="wg-why">Modal con carrusel + selector de talla + add-to-cart sin salir de la grilla. Usuarias <strong>comparan más rápido</strong> y hacen mini-conversiones sin abandonar el contexto de discovery.</div>
+          <div class="wg-metric"><strong>+40%</strong>Add-to-cart</div>
+        </div>
+      </div>
+
+      <!-- W11 · Zoom -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W11 · PDP</div><div class="wg-name">Image Zoom on Hover</div></div>
+          <div class="wg-tag">Detalle</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-zoom">
+            <img src="assets/campaigns/v3-premium-texture.jpg" alt="Zoom denim">
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Farfetch</span><span class="wg-brand">Net-a-Porter</span></div>
+          <div class="wg-why">Cursor sobre imagen amplia 2x esa zona en tiempo real. Para denim es <strong>crítico</strong>: ver la costura, el wash, la textura del jean, la etiqueta. Reduce dudas antes de comprar.</div>
+          <div class="wg-metric"><strong>−25%</strong>Devoluciones</div>
+        </div>
+      </div>
+
+      <!-- W12 · Size AI -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W12 · PDP</div><div class="wg-name">Size AI Predictor</div></div>
+          <div class="wg-tag">−35% returns</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-sizeai">
+            <div class="dm-sizeai-h">Cuéntanos tus medidas · IA sugiere tu talla</div>
+            <div class="dm-sizeai-inputs">
+              <input placeholder="Altura (cm)" value="165">
+              <input placeholder="Peso (kg)" value="62">
+            </div>
+            <div class="dm-sizeai-result"><strong>Talla 40</strong><span>96% match para tu curva</span></div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Levi's</span><span class="wg-brand">Uniqlo</span><span class="wg-brand">True Fit</span></div>
+          <div class="wg-why">La <strong>principal razón de devolución</strong> es "no me quedó". Con altura + peso + preferencia de fit, la IA sugiere talla — reduce returns hasta 35%. Perfecto para Mohicano con 6 curvas.</div>
+          <div class="wg-metric"><strong>−35%</strong>Devoluciones</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 4 · TRUST -->
+<section class="cat-sec" id="trust">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>04</em> · Trust</h2>
+        <p>Construyen credibilidad antes que la usuaria decida. Sin trust no hay ecommerce.</p>
+      </div>
+      <div class="cat-h-r">3 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W13 · Reviews with photos -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W13 · Trust</div><div class="wg-name">Reviews con Fotos</div></div>
+          <div class="wg-tag">4x conv</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-reviews">
+            <div class="dm-review">
+              <img src="assets/products/palazzo-rosie-4070-38.jpg" class="dm-review-thumb" alt="user">
+              <div class="dm-review-b">
+                <div class="dm-review-stars">★★★★★</div>
+                <div class="dm-review-name">Carla V · Talla 40</div>
+                <div class="dm-review-txt">"El calce es literalmente perfecto. Ya no compro otras marcas."</div>
+              </div>
+            </div>
+            <div class="dm-review">
+              <img src="assets/products/skinny-agatha-4015-01.jpg" class="dm-review-thumb" alt="user">
+              <div class="dm-review-b">
+                <div class="dm-review-stars">★★★★★</div>
+                <div class="dm-review-name">Mónica P · Talla 42</div>
+                <div class="dm-review-txt">"El push up es real, no es marketing. Levanta y no aprieta."</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Glossier</span><span class="wg-brand">Farfetch</span><span class="wg-brand">Okendo</span></div>
+          <div class="wg-why">Reseñas con <strong>foto de la compradora real llevando la prenda</strong> — el social proof visual convierte 4x más que reviews solo texto. Mohicano tiene reviews 5⭐ pero sin fotos: oportunidad clara.</div>
+          <div class="wg-metric"><strong>4x</strong>Conv vs texto</div>
+        </div>
+      </div>
+
+      <!-- W14 · Announcement rotativa -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W14 · Trust</div><div class="wg-name">Announcement Rotativa</div></div>
+          <div class="wg-tag">3 msgs / 1 barra</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-annc">
+            <div class="dm-annc-slide"><strong>Envío gratis</strong>sobre $49.000</div>
+            <div class="dm-annc-slide"><strong>Cambios sin costo</strong>hasta 30 días</div>
+            <div class="dm-annc-slide"><strong>Desde 1999</strong>27 años vistiendo Chile</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Nike</span><span class="wg-brand">Adidas</span><span class="wg-brand">Everlane</span></div>
+          <div class="wg-why">Comunica <strong>3-5 beneficios</strong> (envío, cambios, garantía, heritage) sin usar 5 barras que rompen el diseño. Cicla cada 4s en promedio.</div>
+          <div class="wg-metric"><strong>+35%</strong>Retención top</div>
+        </div>
+      </div>
+
+      <!-- W15 · Instagram feed -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W15 · Trust</div><div class="wg-name">Instagram Feed Live</div></div>
+          <div class="wg-tag">UGC real</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-ig">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Aimé Leon Dore</span><span class="wg-brand">Ganni</span></div>
+          <div class="wg-why">Grilla 3x3 con los últimos posts de @mohicanojeans. Muestra <strong>styling real</strong>, no de campaña. Conecta ecommerce con content marketing en tiempo real.</div>
+          <div class="wg-metric"><strong>+22%</strong>Time on site</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 5 · RETENTION -->
+<section class="cat-sec" id="ret">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>05</em> · Retention</h2>
+        <p>La usuaria ya está en el ecommerce. Ahora hay que retenerla, sacar el email y hacer que vuelva.</p>
+      </div>
+      <div class="cat-h-r">3 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W16 · Cart drawer -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W16 · Retention</div><div class="wg-name">Cart Drawer Slide-in</div></div>
+          <div class="wg-tag">+30% items</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-cd">
+            <div class="dm-cd-h"><span>Bolsa</span><span>×</span></div>
+            <div class="dm-cd-b">
+              <div class="dm-cd-item"><div class="th"></div><div><div class="n">Palazzo Rosie</div><div>Talla 40</div></div></div>
+              <div class="dm-cd-item"><div class="th"></div><div><div class="n">Skinny Ágatha</div><div>Talla 40</div></div></div>
+            </div>
+            <div class="dm-cd-f">Ir al checkout →</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Balenciaga</span><span class="wg-brand">Ganni</span><span class="wg-brand">Everlane</span></div>
+          <div class="wg-why">Al agregar producto <strong>abre un drawer lateral</strong> — nunca redirige al cart page. La usuaria sigue en el flujo de browse, agrega otro producto, y otro. AOV sube 30%+.</div>
+          <div class="wg-metric"><strong>+30%</strong>Items por bolsa</div>
+        </div>
+      </div>
+
+      <!-- W17 · Wishlist -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W17 · Retention</div><div class="wg-name">Wishlist con Heart</div></div>
+          <div class="wg-tag">2.4x compra</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-wish">
+            <button class="dm-wish-btn" onclick="this.classList.toggle('on')"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+            <div class="dm-wish-lbl">Click para guardar<br>+ animación pop</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Farfetch</span><span class="wg-brand">SSENSE</span><span class="wg-brand">ASOS</span></div>
+          <div class="wg-why">Usuarias con wishlist <strong>compran 2.4x más</strong> que anónimas. Persiste con localStorage o cuenta. Sirve para emails "tu wishlist tiene descuento" (killer combo con W18).</div>
+          <div class="wg-metric"><strong>2.4x</strong>Conv vs no wish</div>
+        </div>
+      </div>
+
+      <!-- W18 · Newsletter timed -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W18 · Retention</div><div class="wg-name">Newsletter Popup Timed</div></div>
+          <div class="wg-tag">Email = 40x ROI</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-news">
+            <div class="dm-news-x">×</div>
+            <h4>Únete al inner circle</h4>
+            <p>Tu <strong>−10%</strong> en el primer pedido</p>
+            <input placeholder="tu@correo.cl">
+            <button>Quiero mi −10%</button>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Aimé Leon Dore</span><span class="wg-brand">Frank Body</span></div>
+          <div class="wg-why">Aparece a los <strong>15s o en exit-intent</strong>. Ofrece descuento a cambio del email. Email marketing es 40x más rentable que ads pagadas. No aparece si ya está suscrita.</div>
+          <div class="wg-metric"><strong>+8%</strong>Email capture</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORÍA 6 · EXPERIENCE WOW -->
+<section class="cat-sec" id="exp">
+  <div class="cat-sec-inner">
+    <div class="cat-h">
+      <div class="cat-h-l">
+        <h2><em>06</em> · Experience WOW</h2>
+        <p>Los que hacen que la usuaria diga "mira esto" y comparta. Diferencian ecommerce top de ecommerce genérico.</p>
+      </div>
+      <div class="cat-h-r">6 widgets</div>
+    </div>
+    <div class="widget-grid">
+
+      <!-- W19 · 3D viewer -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W19 · Experience</div><div class="wg-name">Product 3D Viewer</div></div>
+          <div class="wg-tag">Ultra premium</div>
+        </div>
+        <div class="wg-demo">
+          <div style="text-align:center">
+            <div class="dm-3d"></div>
+            <div class="dm-3d-lbl">Drag para rotar</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Nike SNKRS</span><span class="wg-brand">Cartier</span><span class="wg-brand">Balenciaga</span></div>
+          <div class="wg-why">Gira el jean en 360° con click+drag. <strong>+5x tiempo de engagement</strong> vs galería de fotos. Ideal para versión V3 Premium. Se puede implementar con Three.js + GLB model.</div>
+          <div class="wg-metric"><strong>5x</strong>Time on PDP</div>
+        </div>
+      </div>
+
+      <!-- W20 · Look shopper -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W20 · Experience</div><div class="wg-name">Shop-the-Look</div></div>
+          <div class="wg-tag">+40% AOV</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-look">
+            <img src="assets/campaigns/v1-heritage-hero.jpg" alt="Look">
+            <div class="dm-look-dot d1"></div>
+            <div class="dm-look-dot d2"></div>
+            <div class="dm-look-dot d3"></div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Ganni</span><span class="wg-brand">Aimé Leon Dore</span><span class="wg-brand">Kith</span></div>
+          <div class="wg-why">Foto lifestyle con <strong>puntos clickeables</strong> sobre cada prenda. Vende el look completo (jean + blusa + accesorio) → AOV sube 40%+. Perfecto para Mohicano con blazer + jean + falda.</div>
+          <div class="wg-metric"><strong>+40%</strong>AOV</div>
+        </div>
+      </div>
+
+      <!-- W21 · Sticky look panel -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W21 · Experience</div><div class="wg-name">Sticky Look Panel</div></div>
+          <div class="wg-tag">Outfit builder</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-look-panel">
+            <div class="dm-look-panel-h"><span>Tu look</span><span>3 piezas</span></div>
+            <div class="dm-look-panel-items"><div></div><div></div><div></div></div>
+            <div class="dm-look-panel-tot"><span>Total look</span><strong>$142.373</strong></div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Loewe</span><span class="wg-brand">MyTheresa</span></div>
+          <div class="wg-why">Sidebar que <strong>muestra "tu look"</strong> en construcción con las piezas que llevas seleccionadas. Invita a completar (jean + top + blazer = look). Ideal para outfit builder.</div>
+          <div class="wg-metric"><strong>+55%</strong>Multi-item</div>
+        </div>
+      </div>
+
+      <!-- W22 · Live video shopping -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W22 · Experience</div><div class="wg-name">Live Video Shopping</div></div>
+          <div class="wg-tag">3x ticket</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-video">
+            <div class="dm-video-live">Live · 12 mirando</div>
+            <h5>Reserva sesión<br>con una estilista</h5>
+            <button>Ver disponibilidad →</button>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Farfetch</span><span class="wg-brand">Sephora</span><span class="wg-brand">Charlotte Tilbury</span></div>
+          <div class="wg-why">"Reserva una videollamada con una estilista de tienda". <strong>Replica la experiencia física</strong> — la usuaria pregunta, la estilista muestra piezas por cámara. Ticket promedio 3x vs autoservicio.</div>
+          <div class="wg-metric"><strong>3x</strong>Ticket promedio</div>
+        </div>
+      </div>
+
+      <!-- W23 · Loyalty bar -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W23 · Experience</div><div class="wg-name">Loyalty Points Bar</div></div>
+          <div class="wg-tag">+60% retorno</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-loy">
+            <div class="dm-loy-h"><span>Mohicano Credit</span><strong>+486 pts</strong></div>
+            <div class="dm-loy-bar"><div class="dm-loy-fill"></div></div>
+            <div class="dm-loy-p">Faltan 214 pts para tu próximo −$5.000</div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Sephora Insider</span><span class="wg-brand">Nike Membership</span></div>
+          <div class="wg-why">La usuaria ve <strong>cuántos puntos gana con esta compra</strong> y cuánto le falta para el siguiente nivel. Miembros de programa retornan 60% más y tienen 3x LTV.</div>
+          <div class="wg-metric"><strong>+60%</strong>Retorno</div>
+        </div>
+      </div>
+
+      <!-- W24 · AR try-on -->
+      <div class="wg rv">
+        <div class="wg-head">
+          <div><div class="wg-num">W24 · Experience</div><div class="wg-name">AR Virtual Try-On</div></div>
+          <div class="wg-tag">Futuro</div>
+        </div>
+        <div class="wg-demo">
+          <div class="dm-ar">
+            <div class="dm-ar-inner">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <strong>Probártelo</strong>
+              <span>Cámara + AR</span>
+            </div>
+          </div>
+        </div>
+        <div class="wg-just">
+          <div class="wg-brands"><span class="wg-brand">Warby Parker</span><span class="wg-brand">L'Oréal</span><span class="wg-brand">Snap AR</span></div>
+          <div class="wg-why">"Probártelo con la cámara" en mobile. <strong>Elimina la principal barrera de compra online</strong> — devoluciones bajan drásticamente. Para jeans se usa la técnica "avatar body scan + fit prediction".</div>
+          <div class="wg-metric"><strong>−50%</strong>Devoluciones</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <h3>24 widgets · listos para integrarse</h3>
+  <p>Cada widget es una decisión de conversión respaldada por data<br>de los top ecommerce del mundo · Curado por <a href="https://digitals.cl" target="_blank">Digitals</a></p>
+</footer>
+
+<script src="shared/data.js"></script>
+<script>
+/* Countdown W04 · demo */
+(function(){
+  var target = new Date(); target.setDate(target.getDate()+14); target.setHours(20,0,0,0);
+  var td=document.getElementById('wgd'),th=document.getElementById('wgh'),tm=document.getElementById('wgm'),ts=document.getElementById('wgs');
+  if(!td) return;
+  function tick(){
+    var diff = target - new Date(); if(diff<=0) return;
+    var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000),
+        m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+    td.textContent=String(d).padStart(2,'0'); th.textContent=String(h).padStart(2,'0');
+    tm.textContent=String(m).padStart(2,'0'); ts.textContent=String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* Reveal */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+
+/* Cat-chip highlight based on scroll */
+(function(){
+  var chips=document.querySelectorAll('.cat-chip');
+  var sections=document.querySelectorAll('.cat-sec');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY + 200;
+    var cur;
+    sections.forEach(function(s){ if(s.offsetTop <= y) cur = s.id; });
+    chips.forEach(function(c){ c.classList.toggle('on', c.getAttribute('href') === '#'+cur); });
+  }, {passive:true});
+})();
+</script>
+
+</body>
+</html>

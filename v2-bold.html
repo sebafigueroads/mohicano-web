@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MOHICANO · DROP 43 · Streetwear denim chileno</title>
+<meta name="description" content="Drop 43. Denim chileno desde 1999. Push Up patentado, curvas Rosie, Ágatha, Emilia, Zoe. Envío gratis $49.000+.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="assets/logos/mohicano-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f0ea;
+  --ink:#0a0a0a;
+  --white:#fff;
+  --acid:#e6ff00;
+  --hot:#ff3d00;
+  --cobalt:#0018ff;
+  --line:rgba(10,10,10,.16);
+  --f-display:'Archivo Black',Impact,sans-serif;
+  --f-sans:'Space Grotesk',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;max-width:100vw;background:var(--bg)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acid);color:var(--ink)}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+/* MARQUEE URGENT */
+.ticker{background:var(--ink);color:var(--acid);padding:8px 0;overflow:hidden;font-family:var(--f-mono);font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.ticker-track{display:flex;gap:60px;white-space:nowrap;animation:tk 28s linear infinite;will-change:transform}
+.ticker-track span::after{content:' → ';color:var(--white);margin:0 14px}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--ink);padding:14px 24px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.nav-l, .nav-r{display:flex;gap:24px;font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+.nav-r{justify-content:flex-end}
+.nav-logo{font-family:var(--f-display);font-size:1.6rem;line-height:.8;letter-spacing:-.03em;color:var(--ink);text-transform:uppercase;justify-self:center}
+.nav-logo span{color:var(--hot)}
+.nav-l a, .nav-r a, .nav-r button{position:relative}
+.nav-l a:hover, .nav-r a:hover{color:var(--hot)}
+.nav-r button svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.nav-r .badge{background:var(--acid);color:var(--ink);font-family:var(--f-mono);font-size:.6rem;padding:2px 6px;border-radius:100px;margin-left:4px}
+@media(max-width:900px){ .nav-l{display:none} .nav-r > *:not(:last-child):not(:nth-last-child(2)){display:none} }
+
+/* HERO monumental */
+.hero{padding:0 24px;position:relative}
+.hero-mono{padding:60px 0 40px;position:relative}
+.hero-mono h1{font-family:var(--f-display);font-size:clamp(4rem,20vw,20rem);line-height:.82;letter-spacing:-.045em;color:var(--ink);text-transform:uppercase;font-weight:900}
+.hero-mono h1 .stroke{-webkit-text-stroke:2px var(--ink);color:transparent;font-style:italic;font-family:var(--f-display)}
+.hero-mono h1 .red{color:var(--hot)}
+.hero-meta{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-top:2px solid var(--ink);padding-top:20px;margin-top:20px}
+.hero-meta strong{display:block;font-size:1.6rem;letter-spacing:normal;font-family:var(--f-display);text-transform:none}
+
+.hero-media{position:relative;margin-top:20px;background:var(--ink);aspect-ratio:16/9;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:opacity .6s ease,transform 1.2s var(--ease)}
+.hero-media:hover img{opacity:1;transform:scale(1.03)}
+.hero-media .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5) 100%)}
+.hero-tag-abs{position:absolute;bottom:24px;left:24px;color:var(--white);font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.hero-tag-abs::before{content:'';width:8px;height:8px;background:var(--hot);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.hero-tag-abs-r{position:absolute;bottom:24px;right:24px;color:var(--white);font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;background:var(--acid);color:var(--ink);padding:8px 14px;border-radius:2px}
+
+/* COUNTDOWN DROP */
+.drop{padding:60px 24px;background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+.drop::before{content:'MOHICANO ✦ DROP 43 ✦ ';font-family:var(--f-display);font-size:11rem;line-height:.8;color:rgba(255,255,255,.04);position:absolute;top:0;left:-2%;white-space:nowrap;pointer-events:none;letter-spacing:-.03em}
+.drop-inner{max-width:1200px;margin:0 auto;position:relative;text-align:center}
+.drop-lbl{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--acid);margin-bottom:22px}
+.drop h2{font-family:var(--f-display);font-size:clamp(2rem,6vw,4.6rem);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:44px}
+.drop h2 em{font-style:italic;color:var(--acid)}
+.drop-timer{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.timer-cell{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:26px 30px;min-width:120px;border-radius:6px}
+.timer-cell strong{font-family:var(--f-display);font-size:3.2rem;line-height:1;color:var(--acid);display:block}
+.timer-cell span{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px;display:block}
+.drop-cta{display:inline-flex;align-items:center;gap:12px;padding:18px 40px;background:var(--acid);color:var(--ink);border-radius:100px;font-family:var(--f-display);font-size:1rem;letter-spacing:-.01em;text-transform:uppercase;transition:.25s ease}
+.drop-cta:hover{background:var(--white);transform:translateY(-2px)}
+
+/* SECTION heads */
+.sec{padding:80px 24px}
+.sec-inner{max-width:1400px;margin:0 auto}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:40px}
+.sec-h h2{font-family:var(--f-display);font-size:clamp(2.4rem,7vw,5rem);line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.sec-h h2 em{font-style:italic;color:var(--hot)}
+.sec-h-r{font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:rgba(10,10,10,.55)}
+.sec-h-r a{color:var(--ink);border-bottom:2px solid var(--ink)}
+
+/* FILTERS chips */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-chip{padding:10px 18px;background:transparent;border:2px solid var(--ink);border-radius:100px;font-family:var(--f-mono);font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.filter-chip.on{background:var(--ink);color:var(--bg)}
+.filter-chip:hover:not(.on){background:var(--acid);border-color:var(--acid)}
+
+/* GRID productos · BOLD */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+.card{background:var(--white);position:relative;overflow:hidden;border:2px solid var(--ink);transition:.3s var(--ease)}
+.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
+.card-img{position:relative;aspect-ratio:3/4;background:var(--bg);overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.card-img:hover img{transform:scale(1.04)}
+.card-num{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--white);padding:4px 10px;z-index:2}
+.card-badges{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:2;align-items:flex-end}
+.b{font-family:var(--f-mono);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;color:var(--ink)}
+.b.new{background:var(--acid)}
+.b.best{background:var(--hot);color:var(--white)}
+.b.push{background:var(--cobalt);color:var(--white)}
+
+.card-hover{position:absolute;inset:auto 0 0 0;padding:0;transform:translateY(100%);transition:.4s var(--ease)}
+.card:hover .card-hover{transform:none}
+.card-hover button{width:100%;padding:16px;background:var(--ink);color:var(--acid);font-family:var(--f-display);font-size:.9rem;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.card-hover button:hover{background:var(--acid);color:var(--ink)}
+
+.card-body{padding:16px;border-top:2px solid var(--ink)}
+.card-name{font-family:var(--f-display);font-size:1.15rem;line-height:1;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:8px}
+.card-meta{font-family:var(--f-mono);font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(10,10,10,.55);margin-bottom:12px}
+.card-price{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-weight:700}
+.card-price .now{font-size:1rem}
+.card-price .off{background:var(--ink);color:var(--acid);padding:4px 8px;font-size:.72rem;letter-spacing:.14em}
+
+/* CURVAS BOLD */
+.curvas{background:var(--ink);color:var(--white);padding:100px 24px;position:relative;overflow:hidden}
+.curvas-inner{max-width:1400px;margin:0 auto}
+.curvas-h{font-family:var(--f-display);font-size:clamp(2.4rem,7vw,5rem);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;color:var(--white);margin-bottom:60px;text-align:center}
+.curvas-h em{font-style:italic;color:var(--acid)}
+.curvas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.curvas-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.curvas-grid{grid-template-columns:1fr}}
+.curva{padding:32px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.14);transition:.3s ease;position:relative;overflow:hidden}
+.curva::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--acid);transition:width .5s var(--ease)}
+.curva:hover::before{width:100%}
+.curva:hover{background:rgba(230,255,0,.05);border-color:var(--acid)}
+.curva-n{font-family:var(--f-display);font-size:3.2rem;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:6px;color:var(--white)}
+.curva:hover .curva-n{color:var(--acid)}
+.curva-c{font-family:var(--f-mono);font-size:.64rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--hot);margin-bottom:16px}
+.curva-d{font-family:var(--f-sans);font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.7)}
+
+/* Big statement */
+.big{padding:100px 24px;text-align:center;background:var(--acid);color:var(--ink)}
+.big h2{font-family:var(--f-display);font-size:clamp(3rem,10vw,10rem);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;max-width:16ch;margin:0 auto}
+.big h2 em{font-style:italic}
+.big p{font-family:var(--f-mono);font-size:.78rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;margin-top:32px;color:rgba(10,10,10,.7)}
+
+/* LOOKBOOK · full-bleed images */
+.look{padding:0;background:var(--ink)}
+.look-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:0}
+@media(max-width:900px){.look-grid{grid-template-columns:1fr}}
+.look-img{aspect-ratio:1/1;overflow:hidden}
+.look-img img{width:100%;height:100%;object-fit:cover;transition:transform 2s var(--ease)}
+.look-img:hover img{transform:scale(1.04)}
+.look-txt{padding:60px 40px;color:var(--white);display:flex;flex-direction:column;justify-content:center}
+.look-txt .kicker{font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--acid);margin-bottom:22px}
+.look-txt h3{font-family:var(--f-display);font-size:clamp(2rem,4vw,3.4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:20px}
+.look-txt p{font-size:1rem;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:24px;max-width:44ch}
+
+/* FOOTER */
+.foot{background:var(--ink);color:var(--white);padding:60px 24px 30px}
+.foot-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:900px){.foot-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.foot-inner{grid-template-columns:1fr}}
+.foot-brand h3{font-family:var(--f-display);font-size:2.4rem;line-height:.85;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:14px}
+.foot-brand h3 span{color:var(--hot)}
+.foot-brand p{font-size:.88rem;color:rgba(255,255,255,.6);max-width:34ch}
+.foot-col h4{font-family:var(--f-mono);font-size:.62rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--acid);margin-bottom:16px}
+.foot-col a{display:block;font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:8px}
+.foot-col a:hover{color:var(--acid)}
+.foot-bar{max-width:1400px;margin:44px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.foot-bar a{color:var(--acid)}
+
+/* DRAWER */
+.drawer-mask{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:.4s ease}
+.drawer-mask.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(460px,100vw);z-index:201;background:var(--bg);transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;border-left:2px solid var(--ink)}
+.drawer.on{transform:none}
+.drawer-h{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);background:var(--ink);color:var(--acid)}
+.drawer-h strong{font-family:var(--f-display);font-size:1.4rem;letter-spacing:-.02em;text-transform:uppercase}
+.drawer-h button{font-family:var(--f-mono);font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--acid)}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 24px}
+.drawer-empty{text-align:center;padding:60px 20px;font-family:var(--f-display);font-size:1.4rem;text-transform:uppercase;color:rgba(10,10,10,.5)}
+.d-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.d-item img{width:80px;aspect-ratio:3/4;object-fit:cover;background:var(--bg);border:1px solid var(--ink)}
+.d-item-b{flex:1}
+.d-item-name{font-family:var(--f-display);font-size:1rem;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:4px;line-height:1.1}
+.d-item-meta{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(10,10,10,.55);margin-bottom:8px}
+.d-item-qty{display:flex;align-items:center;gap:6px}
+.d-item-qty button{width:22px;height:22px;background:var(--ink);color:var(--acid);font-weight:700;cursor:pointer;font-size:.8rem}
+.d-item-qty span{min-width:20px;text-align:center;font-family:var(--f-mono);font-size:.78rem;font-weight:700}
+.d-item-qty .rm{background:transparent;color:var(--hot);font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;margin-left:auto;width:auto;padding:0 8px}
+.d-item-p{font-family:var(--f-mono);font-weight:700;font-size:.9rem}
+.drawer-f{padding:20px 24px;border-top:2px solid var(--ink);background:var(--bg)}
+.d-progress-lbl{font-family:var(--f-mono);font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+.d-progress-lbl strong{color:var(--hot)}
+.d-progress-bar{height:6px;background:var(--ink);position:relative;margin-bottom:16px}
+.d-progress-fill{height:100%;background:var(--acid);transition:width .5s var(--ease)}
+.d-total{display:flex;justify-content:space-between;font-family:var(--f-display);font-size:1.6rem;margin-bottom:16px;text-transform:uppercase}
+.d-checkout{width:100%;padding:18px;background:var(--ink);color:var(--acid);font-family:var(--f-display);font-size:1rem;letter-spacing:-.01em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.d-checkout:hover{background:var(--acid);color:var(--ink)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.06s}
+.rv-d2{transition-delay:.12s}
+.rv-d3{transition-delay:.18s}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>DROP 43 · SOLD OUT WARNING</span>
+    <span>ENVÍO GRATIS · $49.000+</span>
+    <span>DESDE 1999 · DENIM CHILENO</span>
+    <span>PUSH UP PATENTED</span>
+    <span>DROP 43 · SOLD OUT WARNING</span>
+    <span>ENVÍO GRATIS · $49.000+</span>
+    <span>DESDE 1999 · DENIM CHILENO</span>
+    <span>PUSH UP PATENTED</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-l">
+    <a href="#drop">Drop 43</a>
+    <a href="#grid">Shop</a>
+    <a href="#curvas">Curvas</a>
+    <a href="#look">Lookbook</a>
+  </div>
+  <a href="/" class="nav-logo">Mohicano<span>.</span></a>
+  <div class="nav-r">
+    <a href="#">EN</a>
+    <a href="#">Search</a>
+    <button id="cartBtn">Bag <span class="badge" id="cartCount">0</span></button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO MONUMENTAL -->
+<section class="hero">
+  <div class="hero-mono">
+    <h1 class="rv">MOHI<span class="stroke">CANO</span></h1>
+    <h1 class="rv rv-d1">DROP <span class="red">43</span></h1>
+    <div class="hero-meta rv rv-d2">
+      <span>Colección<strong>Otoño 26</strong></span>
+      <span>Fecha lanzamiento<strong>25.07.2026</strong></span>
+      <span>Piezas totales<strong>10</strong></span>
+      <span>Vestido por<strong>+3.800 mujeres</strong></span>
+    </div>
+  </div>
+  <div class="hero-media rv rv-d2">
+    <img src="assets/campaigns/v2-bold-hero.jpg" alt="Drop 43 hero">
+    <div class="overlay"></div>
+    <div class="hero-tag-abs">Live now · Drop 43</div>
+    <div class="hero-tag-abs-r">Only in Chile</div>
+  </div>
+</section>
+
+<!-- COUNTDOWN DROP -->
+<section class="drop" id="drop">
+  <div class="drop-inner">
+    <div class="drop-lbl">Próximo drop</div>
+    <h2>Colección 44 · <em>Primavera</em> 2026<br>Cae en</h2>
+    <div class="drop-timer" id="dropTimer">
+      <div class="timer-cell"><strong id="td">--</strong><span>Días</span></div>
+      <div class="timer-cell"><strong id="th">--</strong><span>Horas</span></div>
+      <div class="timer-cell"><strong id="tm">--</strong><span>Minutos</span></div>
+      <div class="timer-cell"><strong id="ts">--</strong><span>Segundos</span></div>
+    </div>
+    <a href="#" class="drop-cta">Recibir aviso →</a>
+  </div>
+</section>
+
+<!-- GRID -->
+<section class="sec" id="grid">
+  <div class="sec-inner">
+    <div class="sec-h">
+      <h2 class="rv">Drop 43 · <em>Shop</em></h2>
+      <div class="sec-h-r rv rv-d1">10 piezas · <a href="#">View all →</a></div>
+    </div>
+
+    <div class="filters rv rv-d1">
+      <button class="filter-chip on" data-f="all">Todo</button>
+      <button class="filter-chip" data-f="flare">Flare</button>
+      <button class="filter-chip" data-f="palazzo">Palazzo</button>
+      <button class="filter-chip" data-f="wide-leg">Wide Leg</button>
+      <button class="filter-chip" data-f="skinny">Skinny</button>
+    </div>
+
+    <div class="grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- CURVAS BOLD -->
+<section class="curvas" id="curvas">
+  <div class="curvas-inner">
+    <h2 class="curvas-h rv">Curvas con <em>nombre</em></h2>
+    <div class="curvas-grid">
+      <div class="curva rv rv-d1"><div class="curva-n">ROSIE</div><div class="curva-c">Palazzo · #4070</div><div class="curva-d">Tela ROTTERDAM con TENCEL. La favorita del equipo desde 2020. +237 reviews 5⭐.</div></div>
+      <div class="curva rv rv-d2"><div class="curva-n">ÁGATHA</div><div class="curva-c">Skinny · #4015</div><div class="curva-d">Power Stretch. La curva que vistió a nuestras primeras +3.000 clientas.</div></div>
+      <div class="curva rv rv-d3"><div class="curva-n">EMILIA</div><div class="curva-c">Cargo · #3445</div><div class="curva-d">Cinco bolsillos, tres pinzas. Utilitaria con caída Mohicano.</div></div>
+      <div class="curva rv rv-d3"><div class="curva-n">ZOE</div><div class="curva-c">Wide Leg · #4325</div><div class="curva-d">Nueva Drop 43. Silueta clean, cintura alta 12 cm, largo justo.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG STATEMENT -->
+<section class="big">
+  <h2 class="rv">EL <em>CALCE</em>. EL <em>CUERPO</em>. LA <em>MARCA</em>.</h2>
+  <p class="rv rv-d1">27 años · 1 sola misión · +3.000 mujeres vestidas</p>
+</section>
+
+<!-- LOOKBOOK -->
+<section class="look" id="look">
+  <div class="look-grid">
+    <div class="look-img rv"><img src="assets/campaigns/v2-bold-group.jpg" alt="Drop 43 group"></div>
+    <div class="look-txt rv rv-d1">
+      <div class="kicker">Lookbook Drop 43</div>
+      <h3>Tres cortes. Un solo <em style="color:var(--acid)">idioma</em>.</h3>
+      <p>Flare, wide leg, skinny — la trinidad de Mohicano en la calle. Fotografiadas en Santiago por Carla Vergara para el drop 43.</p>
+      <a href="#" style="font-family:var(--f-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acid);border-bottom:2px solid var(--acid);padding-bottom:4px;align-self:flex-start">Ver lookbook completo →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <h3>Mohicano<span>.</span></h3>
+      <p>Denim chileno · desde 1999. Fabricación propia, lavandería sustentable, curvas Push Up patentadas.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <a href="#">Drop 43</a>
+      <a href="#">Flare</a>
+      <a href="#">Palazzo</a>
+      <a href="#">Skinny</a>
+    </div>
+    <div class="foot-col">
+      <h4>Casa</h4>
+      <a href="#">1999</a>
+      <a href="#">Sustentable</a>
+      <a href="#">Push Up</a>
+      <a href="#">Tiendas</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/56965694073">WhatsApp</a>
+      <a href="#">Envíos</a>
+      <a href="#">Cambios</a>
+      <a href="#">Tallas</a>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>© 1999–2026 MOHICANO CHILE</span>
+    <span>Propuesta <a href="/">V2 · BOLD</a> · Digitals</span>
+  </div>
+</footer>
+
+<!-- DRAWER -->
+<div class="drawer-mask" id="drawerMask"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-h">
+    <strong>Bag</strong>
+    <button id="closeDrawer">Close ✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"><div class="drawer-empty">Bag empty</div></div>
+  <div class="drawer-f" id="drawerFoot" style="display:none">
+    <div class="d-progress-lbl" id="dProgLbl">Add <strong>$49.000</strong> more · free ship</div>
+    <div class="d-progress-bar"><div class="d-progress-fill" id="dProgFill"></div></div>
+    <div class="d-total"><span>Total</span><span id="dTotal">$0</span></div>
+    <button class="d-checkout" onclick="alert('Checkout mockup')">Checkout →</button>
+  </div>
+</aside>
+
+<script src="shared/data.js"></script>
+<script>
+(function(){
+  var D = window.MOHICANO_DATA;
+  var grid = document.getElementById('prodGrid');
+  var currentFilter = 'all';
+
+  function render(){
+    grid.innerHTML='';
+    var items = D.products.filter(function(p){ return currentFilter==='all' || p.cut===currentFilter; });
+    items.forEach(function(p,i){
+      var pctOff = Math.round((1 - p.price/p.priceWas)*100);
+      var badges = '';
+      if(p.isNew) badges += '<span class="b new">New</span>';
+      if(p.isBestseller) badges += '<span class="b best">Hot</span>';
+      if(p.pushUp) badges += '<span class="b push">Push Up</span>';
+      var card = document.createElement('article');
+      card.className='card rv';
+      card.innerHTML =
+        '<div class="card-img">'+
+          '<div class="card-num">#'+p.id+'</div>'+
+          '<div class="card-badges">'+badges+'</div>'+
+          '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+
+          '<div class="card-hover"><button data-id="'+p.id+'" class="quick-add">+ Add to bag</button></div>'+
+        '</div>'+
+        '<div class="card-body">'+
+          '<div class="card-name">'+p.name+'</div>'+
+          '<div class="card-meta">'+p.cut+' · '+p.color+'</div>'+
+          '<div class="card-price"><span class="now">'+MHC.formatCLP(p.price)+'</span><span class="off">-'+pctOff+'%</span></div>'+
+        '</div>';
+      grid.appendChild(card);
+      /* mini stagger visible */
+      setTimeout(function(){ card.classList.add('in'); }, 50+i*40);
+    });
+  }
+  render();
+
+  grid.addEventListener('click', function(e){
+    var q = e.target.closest('.quick-add');
+    if(q){ MHC.addToCart(q.dataset.id, '40', 1); openDrawer(); }
+  });
+
+  document.querySelectorAll('.filter-chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('.filter-chip').forEach(function(c){c.classList.remove('on');});
+      chip.classList.add('on');
+      currentFilter = chip.dataset.f; render();
+    });
+  });
+
+  /* COUNTDOWN drop next colección · +14 días */
+  var target = new Date(); target.setDate(target.getDate()+14); target.setHours(20,0,0,0);
+  var td=document.getElementById('td'),th=document.getElementById('th'),tm=document.getElementById('tm'),ts=document.getElementById('ts');
+  function tick(){
+    var diff = target - new Date();
+    if(diff<=0){ td.textContent='00';th.textContent='00';tm.textContent='00';ts.textContent='00'; return; }
+    var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+    td.textContent=String(d).padStart(2,'0'); th.textContent=String(h).padStart(2,'0');
+    tm.textContent=String(m).padStart(2,'0'); ts.textContent=String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+
+  /* DRAWER */
+  var drawer=document.getElementById('drawer'), mask=document.getElementById('drawerMask'),
+      drawerBody=document.getElementById('drawerBody'), drawerFoot=document.getElementById('drawerFoot');
+  function renderDrawer(){
+    var items = MHC.cart();
+    document.getElementById('cartCount').textContent = MHC.cartCount();
+    if(!items.length){ drawerBody.innerHTML='<div class="drawer-empty">Bag empty</div>'; drawerFoot.style.display='none'; return; }
+    drawerBody.innerHTML = items.map(function(i){
+      var p=MHC.productById(i.id); if(!p) return '';
+      return '<div class="d-item"><img src="'+p.img+'"><div class="d-item-b"><div class="d-item-name">'+p.name+'</div><div class="d-item-meta">Talla '+i.size+' · '+p.cut+'</div><div class="d-item-qty" data-id="'+i.id+'" data-size="'+i.size+'"><button class="dec">−</button><span>'+i.qty+'</span><button class="inc">+</button><button class="rm">Remove</button></div></div><div class="d-item-p">'+MHC.formatCLP(p.price*i.qty)+'</div></div>';
+    }).join('');
+    drawerFoot.style.display='block';
+    var sub=MHC.cartSubtotal(); document.getElementById('dTotal').textContent=MHC.formatCLP(sub);
+    var FREE=49000, pct=Math.min(100,(sub/FREE)*100);
+    document.getElementById('dProgFill').style.width=pct+'%';
+    document.getElementById('dProgLbl').innerHTML = sub>=FREE ? '<strong>✓ FREE SHIP UNLOCKED</strong>' : 'Add <strong>'+MHC.formatCLP(FREE-sub)+'</strong> more · free ship';
+  }
+  drawerBody.addEventListener('click',function(e){
+    var w=e.target.closest('.d-item-qty'); if(!w) return;
+    var id=w.dataset.id,size=w.dataset.size;
+    var it=MHC.cart().find(function(i){return i.id===id&&i.size===size;});
+    if(e.target.classList.contains('inc')) MHC.updateCartQty(id,size,it.qty+1);
+    else if(e.target.classList.contains('dec')) MHC.updateCartQty(id,size,it.qty-1);
+    else if(e.target.classList.contains('rm')) MHC.removeFromCart(id,size);
+  });
+  function openDrawer(){drawer.classList.add('on');mask.classList.add('on');renderDrawer();}
+  function closeDrawer(){drawer.classList.remove('on');mask.classList.remove('on');}
+  document.getElementById('cartBtn').addEventListener('click',openDrawer);
+  document.getElementById('closeDrawer').addEventListener('click',closeDrawer);
+  mask.addEventListener('click',closeDrawer);
+  document.addEventListener('mhc:state',renderDrawer); renderDrawer();
+
+  /* Reveal */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>

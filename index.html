@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mohicano · 3 Propuestas de Rediseño Ecommerce · Digitals</title>
+<meta name="description" content="3 rediseños completos de ecommerce para Mohicano Jeans + biblioteca de widgets premium. Presentado por Digitals.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="assets/logos/mohicano-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a; --paper:#f8f5f0; --line:rgba(255,255,255,.08);
+  --lime:#c8e04a; --indigo:#3a4b7a; --sepia:#c19060; --orange:#ee9a00;
+  --f-display:'Fraunces',Georgia,serif; --f-sans:'Manrope',-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.15,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;max-width:100vw}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","ss02";letter-spacing:-.005em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-variation-settings:"opsz" 144}
+::selection{background:var(--lime);color:var(--ink)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.7);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.68)}
+.nav-brand strong{color:#fff;letter-spacing:.14em}
+.nav-brand::before{content:'';width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 0 rgba(200,224,74,.5);animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{50%{box-shadow:0 0 0 6px rgba(200,224,74,0)}}
+.nav-right{display:flex;gap:24px;align-items:center;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.6)}
+.nav-right a:hover{color:#fff}
+
+@media(max-width:640px){ .nav{padding:14px 18px} .nav-brand{font-size:.6rem} .nav-right{gap:14px;font-size:.58rem} .nav-right a:not(:last-child){display:none} }
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:140px 32px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 20%,rgba(238,154,0,.10),transparent 55%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(200,224,74,.06),transparent 55%);pointer-events:none}
+.hero-inner{max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--lime);margin-bottom:36px}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--lime)}
+.hero h1{font-family:var(--f-display);font-weight:300;font-size:clamp(3rem,9vw,8rem);line-height:.98;letter-spacing:-.03em;color:#fff;margin-bottom:32px;max-width:16ch}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--sepia)}
+.hero h1 .amp{color:var(--lime);font-weight:300;font-style:italic}
+.hero-sub{font-family:var(--f-sans);font-weight:300;font-size:clamp(1.02rem,1.4vw,1.24rem);line-height:1.55;max-width:52ch;color:rgba(248,245,240,.72);margin-bottom:44px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.5)}
+.hero-meta span strong{color:#fff;display:block;font-size:1.15rem;letter-spacing:normal;font-family:var(--f-display);font-style:italic;font-weight:400;margin-top:4px;text-transform:none}
+
+/* PROPUESTAS · 3 cards horizontales */
+.propuestas{padding:100px 32px}
+.propuestas-inner{max-width:1400px;margin:0 auto}
+.sec-head{margin-bottom:60px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.sec-head h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;color:#fff;letter-spacing:-.02em;max-width:16ch}
+.sec-head h2 em{font-style:italic;color:var(--sepia)}
+.sec-head-right{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.5)}
+
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1024px){.prop-grid{grid-template-columns:1fr}}
+
+.prop{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:#141210;cursor:pointer;transition:transform .6s var(--ease);border:1px solid var(--line)}
+.prop:hover{transform:translateY(-6px)}
+.prop-img{position:absolute;inset:0;overflow:hidden}
+.prop-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s ease;filter:brightness(.72) saturate(1.05)}
+.prop:hover .prop-img img{transform:scale(1.05);filter:brightness(.85) saturate(1.1)}
+.prop-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 40%,rgba(0,0,0,.85) 100%);pointer-events:none}
+.prop-body{position:absolute;bottom:0;left:0;right:0;padding:32px;z-index:2;display:flex;flex-direction:column;gap:14px}
+.prop-num{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(248,245,240,.7)}
+.prop-name{font-family:var(--f-display);font-style:italic;font-weight:300;font-size:clamp(2rem,3.5vw,2.8rem);line-height:1;color:#fff;letter-spacing:-.02em}
+.prop-name em{color:var(--sepia)}
+.prop-tag{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,240,.6)}
+.prop-refs{margin-top:8px;font-family:var(--f-sans);font-size:.85rem;color:rgba(248,245,240,.75);line-height:1.5}
+.prop-cta{margin-top:14px;display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:1px solid rgba(255,255,255,.28);border-radius:100px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;align-self:flex-start;transition:.3s ease}
+.prop:hover .prop-cta{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.prop-cta svg{width:14px;height:14px}
+.prop-corner{position:absolute;top:20px;right:20px;z-index:3;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);padding:6px 10px;border:1px solid rgba(255,255,255,.14);border-radius:4px;backdrop-filter:blur(10px)}
+.prop-palette{position:absolute;top:20px;left:20px;z-index:3;display:flex;gap:4px}
+.prop-palette span{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.2)}
+
+/* WIDGETS TEASER */
+.widgets-teaser{padding:120px 32px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--ink) 0%,#141210 100%)}
+.widgets-teaser-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.widgets-teaser-inner{grid-template-columns:1fr;gap:50px}}
+.wt-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:24px;max-width:16ch}
+.wt-left h2 em{font-style:italic;color:var(--sepia)}
+.wt-left p{font-family:var(--f-sans);font-size:1.05rem;line-height:1.7;color:rgba(248,245,240,.72);margin-bottom:20px;max-width:52ch}
+.wt-stats{display:flex;gap:40px;margin:36px 0 40px;padding-top:32px;border-top:1px solid var(--line)}
+.wt-stat{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(248,245,240,.5)}
+.wt-stat strong{display:block;font-family:var(--f-display);font-style:italic;font-weight:400;font-size:2.2rem;line-height:1;color:var(--lime);margin-bottom:6px;text-transform:none;letter-spacing:-.02em}
+.wt-btn{display:inline-flex;align-items:center;gap:12px;padding:20px 32px;background:var(--lime);color:var(--ink);border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:.3s ease}
+.wt-btn:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(200,224,74,.28)}
+
+.wt-right{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.wt-chip{aspect-ratio:1;background:rgba(248,245,240,.03);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,245,240,.5);text-align:center;padding:14px 8px;transition:.3s ease}
+.wt-chip:hover{background:rgba(200,224,74,.06);border-color:rgba(200,224,74,.3);color:var(--lime)}
+.wt-chip strong{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.4rem;color:#fff;display:block;margin-bottom:6px;letter-spacing:-.02em;text-transform:none}
+.wt-chip:hover strong{color:var(--lime)}
+
+/* CONTEXT · problema/oportunidad */
+.context{padding:100px 32px}
+.context-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+@media(max-width:900px){.context-inner{grid-template-columns:1fr}}
+.ctx-col{background:rgba(248,245,240,.02);border:1px solid var(--line);border-radius:6px;padding:44px 36px}
+.ctx-head{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.4);margin-bottom:14px}
+.ctx-col h3{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.8rem;color:#fff;line-height:1.15;margin-bottom:20px;letter-spacing:-.015em}
+.ctx-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.ctx-list li{font-family:var(--f-sans);font-weight:300;font-size:.95rem;line-height:1.5;color:rgba(248,245,240,.72);padding-left:22px;position:relative}
+.ctx-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:1px;background:rgba(248,245,240,.4)}
+.ctx-col.opp{background:rgba(200,224,74,.04);border-color:rgba(200,224,74,.2)}
+.ctx-col.opp .ctx-list li::before{background:var(--lime)}
+.ctx-col.opp h3 em{color:var(--lime)}
+
+/* FOOTER */
+.foot{padding:60px 32px 40px;border-top:1px solid var(--line);text-align:center}
+.foot p{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,245,240,.35);line-height:2}
+.foot p a{color:var(--lime)}
+
+/* CURSOR HALO */
+#halo{position:fixed;width:400px;height:400px;pointer-events:none;z-index:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(238,154,0,.05) 0%,transparent 60%);mix-blend-mode:screen;transition:opacity .4s ease}
+@media(hover:none){#halo{display:none}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}
+.rv-d2{transition-delay:.16s}
+.rv-d3{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<div id="halo"></div>
+
+<nav class="nav">
+  <div class="nav-brand">Digitals · <strong>Mohicano</strong> · Propuesta 2026</div>
+  <div class="nav-right">
+    <a href="#propuestas">Propuestas</a>
+    <a href="#widgets-teaser">Widgets</a>
+    <a href="https://mohicano.cl" target="_blank" rel="noopener">Web actual ↗</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag rv">Reboot Mohicano · Ecommerce 2026</div>
+    <h1 class="rv rv-d1">Tres <em>rediseños</em>. Una <span class="amp">×</span> marca.<br>El calce ahora también en la <em>web</em>.</h1>
+    <p class="hero-sub rv rv-d2">Presentamos tres caminos completos para llevar el ecommerce de Mohicano a nivel <em>award-winning</em> mundial. Cada uno con su carácter — heritage, bold o premium — pero los tres construidos sobre la misma base de fábrica: los 27 años de denim chileno, la lavandería sustentable, el push-up patentado y las curvas Rosie, Ágatha, Emilia.</p>
+    <div class="hero-meta rv rv-d3">
+      <span>Trayectoria<strong>1999 → 2026</strong></span>
+      <span>Sustentabilidad<strong>13 L/prenda</strong></span>
+      <span>Curvas<strong>36 → 46</strong></span>
+      <span>Tiendas<strong>Vitacura + Sta. Filomena</strong></span>
+    </div>
+  </div>
+</section>
+
+<section class="context">
+  <div class="context-inner">
+    <div class="ctx-col">
+      <div class="ctx-head">Diagnóstico · Web actual</div>
+      <h3>Un ecommerce que <em>convierte</em>, pero no <em>construye marca</em>.</h3>
+      <ul class="ctx-list">
+        <li>Tema PrestaShop genérico, sin identidad visual propia.</li>
+        <li>Fotografía de catálogo plano sobre fondo blanco. Cero editorial.</li>
+        <li>Descuento -10% permanente rompe la percepción "El Calce Perfecto".</li>
+        <li>La historia de sustentabilidad (13 L vs 100 L) no se comunica visualmente.</li>
+        <li>Los nombres propios de los cortes (Rosie, Ágatha, Emilia) desaprovechados.</li>
+        <li>Sin video, sin storytelling, sin drop calendar, sin fit finder.</li>
+        <li>Sin membership, sin wishlist, sin AR try-on, sin quick-view.</li>
+        <li>Nivel de sofisticación actual: 3/10 vs Aimé Leon Dore / Kith / Palace.</li>
+      </ul>
+    </div>
+    <div class="ctx-col opp">
+      <div class="ctx-head">Oportunidad · Lo que hay que capitalizar</div>
+      <h3>27 años de <em>heritage denim chileno</em> esperando ser contados.</h3>
+      <ul class="ctx-list">
+        <li><strong>Data killer:</strong> 13 L por prenda vs 100 L industria → contarla como manifiesto.</li>
+        <li><strong>Nombres propios</strong> de cortes son oro: Rosie, Ágatha, Emilia. Cada corte, una historia.</li>
+        <li><strong>Tecnología Push-Up patentada</strong> — cero competidores en Chile la tienen.</li>
+        <li><strong>Dos tiendas premium</strong> (Vitacura + Sta. Filomena) → book online + retiro sin fricción.</li>
+        <li><strong>Colecciones numeradas</strong> (43, 42, 41...) — potencial de drops calendarizados.</li>
+        <li><strong>Reseñas altísimas</strong> (5⭐ con +237 reviews en productos hero) sin explotar visualmente.</li>
+        <li><strong>Segmento premium mujer 25-45</strong> chilena con ticket medio $47k → foco claro.</li>
+        <li><strong>Fabricación local</strong> con planta propia → autoridad de producto sin equivalente.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="propuestas" id="propuestas">
+  <div class="propuestas-inner">
+    <div class="sec-head">
+      <h2 class="rv">Elige tu <em>vía</em>. O explora las tres.</h2>
+      <div class="sec-head-right rv rv-d1">3 caminos · Un solo ADN</div>
+    </div>
+
+    <div class="prop-grid">
+      <a href="/v1" class="prop rv rv-d1">
+        <div class="prop-palette"><span style="background:#3a2818"></span><span style="background:#c19060"></span><span style="background:#f5ecdc"></span></div>
+        <div class="prop-corner">V1</div>
+        <div class="prop-img"><img src="assets/campaigns/v1-heritage-hero.jpg" alt="Denim Heritage · V1"></div>
+        <div class="prop-body">
+          <div class="prop-num">Propuesta 01</div>
+          <div class="prop-name"><em>Heritage</em></div>
+          <div class="prop-tag">Editorial · Sepias · Storytelling denim</div>
+          <div class="prop-refs">Aimé Leon Dore · A.P.C. · Todd Snyder. Foco en los 27 años, la fábrica, la lavandería y los cortes con nombre propio como personajes.</div>
+          <div class="prop-cta">Ver V1 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </a>
+
+      <a href="/v2" class="prop rv rv-d2">
+        <div class="prop-palette"><span style="background:#0a0a0a"></span><span style="background:#ffec00"></span><span style="background:#ff3d00"></span></div>
+        <div class="prop-corner">V2</div>
+        <div class="prop-img"><img src="assets/campaigns/v2-bold-hero.jpg" alt="Streetwear Bold · V2"></div>
+        <div class="prop-body">
+          <div class="prop-num">Propuesta 02</div>
+          <div class="prop-name"><em>Bold</em></div>
+          <div class="prop-tag">Streetwear · Tipos gigantes · Drops</div>
+          <div class="prop-refs">Palace · Off-White · Kith. Colecciones como drops calendarizados, tipografía monumental, contraste alto, urgencia real.</div>
+          <div class="prop-cta">Ver V2 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </a>
+
+      <a href="/v3" class="prop rv rv-d3">
+        <div class="prop-palette"><span style="background:#050505"></span><span style="background:#8b8b7f"></span><span style="background:#e8dcc4"></span></div>
+        <div class="prop-corner">V3</div>
+        <div class="prop-img"><img src="assets/campaigns/v3-premium-hero.jpg" alt="Ultra Premium · V3"></div>
+        <div class="prop-body">
+          <div class="prop-num">Propuesta 03</div>
+          <div class="prop-name"><em>Premium</em></div>
+          <div class="prop-tag">Cinematic dark · Motion · Ultra WOW</div>
+          <div class="prop-refs">Balenciaga · Loewe · The Row. Full-screen scroll narrativo, motion 60 fps, PDP cinematográfica, membership Mohicano Club.</div>
+          <div class="prop-cta">Ver V3 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="widgets-teaser" id="widgets-teaser">
+  <div class="widgets-teaser-inner">
+    <div class="wt-left">
+      <div class="hero-tag rv" style="margin-bottom:24px">Extra · Biblioteca de widgets</div>
+      <h2 class="rv rv-d1">Y además: <em>24 widgets ultra cool</em> listos para usar.</h2>
+      <p class="rv rv-d2">Cada patrón ecommerce que hoy convierte en los tops mundiales — sticky cart, quick view, drop countdown, size predictor con IA, shop-the-look, AR try-on, wishlist, live drops — con demo en vivo, código copy-paste y justificación de qué marca lo usa y por qué funciona.</p>
+      <div class="wt-stats rv rv-d3">
+        <div class="wt-stat"><strong>24</strong>widgets</div>
+        <div class="wt-stat"><strong>6</strong>categorías</div>
+        <div class="wt-stat"><strong>+18</strong>marcas ref</div>
+      </div>
+      <a href="/widgets" class="wt-btn rv rv-d3">
+        Ver biblioteca
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="wt-right rv rv-d2">
+      <div class="wt-chip"><strong>W01</strong>Sticky ATC</div>
+      <div class="wt-chip"><strong>W04</strong>Drop Timer</div>
+      <div class="wt-chip"><strong>W09</strong>Image Swap</div>
+      <div class="wt-chip"><strong>W10</strong>Quick View</div>
+      <div class="wt-chip"><strong>W12</strong>Size AI</div>
+      <div class="wt-chip"><strong>W16</strong>Cart Drawer</div>
+      <div class="wt-chip"><strong>W17</strong>Wishlist</div>
+      <div class="wt-chip"><strong>W20</strong>Look Shopper</div>
+      <div class="wt-chip"><strong>W24</strong>AR Try-On</div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>© 2026 Digitals · Propuesta Mohicano Jeans 2026<br>
+  <a href="https://digitals.cl" target="_blank" rel="noopener">digitals.cl</a> · Estrategia + Diseño + Desarrollo</p>
+</footer>
+
+<script>
+/* Cursor halo */
+(function(){
+  var halo=document.getElementById('halo');
+  document.addEventListener('mousemove',function(e){
+    halo.style.left=e.clientX+'px'; halo.style.top=e.clientY+'px';
+  });
+})();
+/* Reveal */
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>
