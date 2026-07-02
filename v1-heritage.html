@@ -126,6 +126,74 @@ main,header,footer{position:relative;z-index:1}
 .card-price{display:flex;align-items:center;gap:10px;font-family:var(--f-sans);font-weight:500;font-size:.95rem;color:var(--ink)}
 .card-price .was{font-weight:400;color:rgba(26,19,16,.4);text-decoration:line-through;font-size:.85rem}
 .card-price .off{color:var(--sepia);font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
+.card-reviews{display:flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:rgba(26,19,16,.55);margin-top:6px}
+.card-reviews .stars{color:var(--sepia);letter-spacing:.04em;font-size:.72rem}
+.card-colors{display:flex;gap:4px;margin-top:8px}
+.card-colors span{width:12px;height:12px;border-radius:50%;border:1px solid rgba(26,19,16,.18);cursor:pointer}
+.card-colors span.on{border-width:2px;border-color:var(--sepia)}
+.card-stock{position:absolute;bottom:14px;left:14px;background:rgba(26,19,16,.85);color:var(--paper);font-family:var(--f-mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;padding:4px 8px;border-radius:2px;z-index:2}
+
+/* Filter bar */
+.filter-bar{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding:20px 0;margin-bottom:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filter-bar-l{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.fchip{padding:8px 16px;background:transparent;border:1px solid var(--line-strong);border-radius:100px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);cursor:pointer;transition:.25s ease;white-space:nowrap}
+.fchip:hover:not(.on){border-color:var(--sepia);color:var(--sepia)}
+.fchip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fchip small{color:rgba(255,255,255,.45);margin-left:6px}
+.fchip:not(.on) small{color:rgba(26,19,16,.4)}
+.filter-bar-r{display:flex;gap:14px;align-items:center;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(26,19,16,.55)}
+.filter-bar-r select{background:transparent;border:1px solid var(--line-strong);padding:8px 14px;font:inherit;color:var(--ink);border-radius:100px;cursor:pointer;font-size:.62rem;letter-spacing:.2em}
+
+/* Rail horizontal (best sellers) */
+.rail{padding:70px 32px;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rail-h{max-width:1400px;margin:0 auto 32px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px}
+.rail-h h3{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--ink);letter-spacing:-.02em;line-height:1}
+.rail-h-r{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(26,19,16,.55);display:flex;gap:14px;align-items:center}
+.rail-h-r a{border-bottom:1px solid var(--sepia);padding-bottom:2px;color:var(--ink)}
+.rail-h-r .arrows{display:flex;gap:6px}
+.rail-h-r .arrows button{width:34px;height:34px;background:var(--paper);border:1px solid var(--line-strong);border-radius:50%;cursor:pointer;font-size:.9rem;transition:.2s ease}
+.rail-h-r .arrows button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rail-track{display:flex;gap:16px;overflow-x:auto;padding:6px 32px 20px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail-track::-webkit-scrollbar{display:none}
+.rail-card{flex:0 0 260px;scroll-snap-align:start;background:var(--paper);border:1px solid var(--line);transition:.4s var(--ease)}
+.rail-card:hover{transform:translateY(-4px);border-color:var(--sepia)}
+.rail-card .card-img{aspect-ratio:3/4}
+.rail-card .card-body{padding:14px 12px}
+.rail-card .card-name{font-size:1.02rem;margin-bottom:2px}
+.rail-card .card-subtitle{font-size:.6rem;margin-bottom:8px}
+
+/* Shop-by-cut · grilla de categorías */
+.shopby{padding:80px 32px}
+.shopby-inner{max-width:1400px;margin:0 auto}
+.shopby-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:900px){.shopby-grid{grid-template-columns:repeat(2,1fr)}}
+.shopby-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--paper-2);cursor:pointer}
+.shopby-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);filter:brightness(.85)}
+.shopby-card:hover img{transform:scale(1.05);filter:brightness(1)}
+.shopby-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.65) 100%)}
+.shopby-cap{position:absolute;bottom:20px;left:20px;right:20px;color:var(--paper);z-index:2;display:flex;justify-content:space-between;align-items:baseline}
+.shopby-cap strong{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:1.6rem;letter-spacing:-.02em}
+.shopby-cap span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,236,220,.75)}
+
+/* Shop-by-color · círculos hex */
+.colorbar{padding:60px 32px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.colorbar-inner{max-width:1400px;margin:0 auto;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.colorbar-h{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.4rem;color:var(--ink);letter-spacing:-.02em;flex-shrink:0}
+.colorbar-h em{color:var(--sepia)}
+.colorbar-items{display:flex;gap:12px;flex:1;flex-wrap:wrap}
+.colorchip{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:.25s ease}
+.colorchip:hover{transform:translateY(-2px)}
+.colorchip .dot{width:44px;height:44px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 0 0 1px rgba(26,19,16,.16);transition:.25s ease}
+.colorchip:hover .dot{box-shadow:0 0 0 2px var(--sepia)}
+.colorchip .lbl{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,19,16,.6)}
+
+/* Sticky mini bag summary · aparece en scroll cuando hay items */
+.stickybag{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120%);z-index:60;display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;background:var(--ink);color:var(--paper);border-radius:100px;box-shadow:0 20px 60px rgba(0,0,0,.25);transition:transform .5s var(--ease);cursor:pointer;max-width:calc(100vw - 32px)}
+.stickybag.on{transform:translate(-50%,0)}
+.stickybag-thumb{width:38px;height:46px;object-fit:cover;border-radius:4px;background:#333}
+.stickybag-txt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;line-height:1.35}
+.stickybag-txt strong{color:var(--gold);display:block;font-family:var(--f-display);font-style:italic;font-size:1rem;letter-spacing:-.02em;text-transform:none;font-weight:400;margin-bottom:2px}
+.stickybag-cta{padding:8px 16px;background:var(--gold);color:var(--ink);border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase}
 
 /* STORY sections · storytelling denim heritage */
 .story{padding:100px 32px;position:relative}
@@ -298,6 +366,23 @@ main,header,footer{position:relative;z-index:1}
   </div>
 </section>
 
+<!-- SHOP BY COLOR · rail -->
+<section class="colorbar">
+  <div class="colorbar-inner">
+    <div class="colorbar-h">Compra por <em>color</em></div>
+    <div class="colorbar-items">
+      <div class="colorchip"><span class="dot" style="background:#2E3B5C"></span><span class="lbl">Indigo</span></div>
+      <div class="colorchip"><span class="dot" style="background:#0F0F0F"></span><span class="lbl">Negro</span></div>
+      <div class="colorchip"><span class="dot" style="background:#3E2A1E"></span><span class="lbl">Chocolate</span></div>
+      <div class="colorchip"><span class="dot" style="background:#5A1D26"></span><span class="lbl">Burdeo</span></div>
+      <div class="colorchip"><span class="dot" style="background:#5B78A2"></span><span class="lbl">Azul medio</span></div>
+      <div class="colorchip"><span class="dot" style="background:#3C3C40"></span><span class="lbl">Carbón</span></div>
+      <div class="colorchip"><span class="dot" style="background:#c0a080"></span><span class="lbl">Beige</span></div>
+      <div class="colorchip"><span class="dot" style="background:#dcdcdc"></span><span class="lbl">Blanco</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- COLECCIÓN 43 · productos -->
 <section class="section" id="col-43">
   <div class="section-inner">
@@ -305,8 +390,58 @@ main,header,footer{position:relative;z-index:1}
       <h2 class="rv">Colección 43 · <em>Otoño 2026</em></h2>
       <div class="section-head-r rv rv-d1">10 cortes · <a href="#">Ver todos →</a></div>
     </div>
+    <div class="filter-bar rv rv-d1">
+      <div class="filter-bar-l">
+        <button class="fchip on" data-f="all">Todos <small>10</small></button>
+        <button class="fchip" data-f="flare">Flare <small>4</small></button>
+        <button class="fchip" data-f="palazzo">Palazzo <small>2</small></button>
+        <button class="fchip" data-f="skinny">Skinny <small>2</small></button>
+        <button class="fchip" data-f="wide-leg">Wide Leg <small>1</small></button>
+        <button class="fchip" data-f="push-up">Push Up <small>4</small></button>
+      </div>
+      <div class="filter-bar-r">
+        <span>Ordenar</span>
+        <select>
+          <option>Más vendidos</option>
+          <option>Novedades</option>
+          <option>Precio ↑</option>
+          <option>Precio ↓</option>
+        </select>
+      </div>
+    </div>
     <div class="prod-grid" id="prodGrid"></div>
+    <div style="text-align:center;margin-top:44px" class="rv">
+      <button style="padding:16px 44px;border:1px solid var(--ink);background:transparent;font-family:var(--f-mono);font-weight:500;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;border-radius:100px;transition:.3s ease" onmouseover="this.style.background='var(--ink)';this.style.color='var(--paper)'" onmouseout="this.style.background='transparent';this.style.color='var(--ink)'">Ver los 10 modelos +</button>
+    </div>
   </div>
+</section>
+
+<!-- SHOP BY CUT · grilla categorías -->
+<section class="shopby">
+  <div class="shopby-inner">
+    <div class="section-head">
+      <h2 class="rv">Compra por <em>corte</em></h2>
+      <div class="section-head-r rv rv-d1">8 siluetas · <a href="#">Ver guía →</a></div>
+    </div>
+    <div class="shopby-grid">
+      <a class="shopby-card rv"><img src="assets/campaigns/v1-heritage-hero.jpg" alt="Flare"><div class="shopby-cap"><strong>Flare</strong><span>4 modelos →</span></div></a>
+      <a class="shopby-card rv rv-d1"><img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Palazzo"><div class="shopby-cap"><strong>Palazzo</strong><span>2 modelos →</span></div></a>
+      <a class="shopby-card rv rv-d2"><img src="assets/products/skinny-agatha-4015-01.jpg" alt="Skinny"><div class="shopby-cap"><strong>Skinny</strong><span>2 modelos →</span></div></a>
+      <a class="shopby-card rv rv-d3"><img src="assets/products/wide-leg-4325-01.jpg" alt="Wide Leg"><div class="shopby-cap"><strong>Wide Leg</strong><span>1 modelo →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- RAIL BEST SELLERS -->
+<section class="rail">
+  <div class="rail-h">
+    <h3><em>Best sellers</em> · las más pedidas</h3>
+    <div class="rail-h-r">
+      <a href="#">Ver todos →</a>
+      <div class="arrows"><button data-dir="-1">←</button><button data-dir="1">→</button></div>
+    </div>
+  </div>
+  <div class="rail-track" id="railTrack"></div>
 </section>
 
 <!-- STORY · Los Sastres del Denim -->
@@ -441,21 +576,37 @@ main,header,footer{position:relative;z-index:1}
 (function(){
   var D = window.MOHICANO_DATA;
 
-  /* GRID PRODUCTOS */
-  var grid = document.getElementById('prodGrid');
-  D.products.slice(0,8).forEach(function(p){
+  /* Helper · agrupa colores por corte del producto para chip */
+  var groupColors = {
+    'flare': ['#2E3B5C','#3E2A1E','#5A1D26','#3C3C40'],
+    'palazzo': ['#2E3B5C','#4A5D80'],
+    'skinny': ['#2A3A5A','#5B78A2'],
+    'wide-leg': ['#4A6285']
+  };
+
+  function buildCard(p, size){
     var pctOff = Math.round((1 - p.price/p.priceWas)*100);
     var badges = '';
     if(p.isNew) badges += '<span class="badge new">Nuevo</span>';
     if(p.isBestseller) badges += '<span class="badge best">Best</span>';
     if(p.pushUp) badges += '<span class="badge push">Push Up</span>';
-    var card = document.createElement('article');
-    card.className = 'card rv';
-    card.innerHTML =
-      '<div class="card-img">'+
+    /* Low stock más restrictivo · muestra si alguna talla popular está bajo 5 */
+    var lowSizes = Object.entries(p.stock||{}).filter(function(x){return x[1]<5 && x[1]>0}).length;
+    var stockBadge = lowSizes >= 3 ? '<div class="card-stock">Últimas unidades</div>' : '';
+    /* Reviews stars */
+    var stars = '';
+    var full = Math.floor(p.rating||0);
+    for(var i=0;i<full;i++) stars += '★';
+    for(var j=full;j<5;j++) stars += '☆';
+    /* Colors chips */
+    var cols = (groupColors[p.cut]||['#2E3B5C']).slice(0,4).map(function(c,idx){
+      return '<span'+(idx===0?' class="on"':'')+' style="background:'+c+'"></span>';
+    }).join('');
+    return '<div class="card-img">'+
         '<div class="card-badges">'+badges+'</div>'+
-        '<button class="card-wish '+(MHC.inWish(p.id)?'on':'')+'" data-id="'+p.id+'" aria-label="Añadir a wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>'+
+        '<button class="card-wish '+(MHC.inWish(p.id)?'on':'')+'" data-id="'+p.id+'" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>'+
         '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+
+        stockBadge+
         '<div class="card-quick"><button data-id="'+p.id+'" class="quick-add">+ Añadir a la bolsa</button></div>'+
       '</div>'+
       '<div class="card-body">'+
@@ -466,17 +617,82 @@ main,header,footer{position:relative;z-index:1}
           '<span class="was">'+MHC.formatCLP(p.priceWas)+'</span>'+
           '<span class="off">-'+pctOff+'%</span>'+
         '</div>'+
+        '<div class="card-reviews"><span class="stars">'+stars+'</span> '+(p.rating||0).toFixed(1)+' · '+p.reviews+' reseñas</div>'+
+        '<div class="card-colors">'+cols+'</div>'+
       '</div>';
-    grid.appendChild(card);
+  }
+
+  /* GRID PRODUCTOS · Colección 43 */
+  var grid = document.getElementById('prodGrid');
+  var currentFilter = 'all';
+  function renderGrid(){
+    grid.innerHTML='';
+    var items = D.products.filter(function(p){
+      if(currentFilter==='all') return true;
+      if(currentFilter==='push-up') return p.pushUp;
+      return p.cut===currentFilter;
+    });
+    items.forEach(function(p,i){
+      var card = document.createElement('article');
+      card.className='card rv';
+      card.innerHTML = buildCard(p);
+      grid.appendChild(card);
+      setTimeout(function(){card.classList.add('in')},40+i*40);
+    });
+  }
+  renderGrid();
+
+  /* Filter bar */
+  document.querySelectorAll('.fchip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('.fchip').forEach(function(c){c.classList.remove('on');});
+      chip.classList.add('on'); currentFilter=chip.dataset.f; renderGrid();
+    });
   });
 
-  /* Wish toggle */
-  grid.addEventListener('click', function(e){
+  /* RAIL best sellers */
+  var railTrack = document.getElementById('railTrack');
+  /* Best sellers = todo repetido en horizontal, 10 productos */
+  D.products.forEach(function(p){
+    var card = document.createElement('article');
+    card.className='rail-card card';
+    card.innerHTML = buildCard(p);
+    railTrack.appendChild(card);
+  });
+  /* Rail arrows */
+  document.querySelectorAll('.arrows button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      railTrack.scrollBy({left:parseInt(btn.dataset.dir)*300, behavior:'smooth'});
+    });
+  });
+
+  /* Wish + quick add · delegación global */
+  document.addEventListener('click', function(e){
     var w = e.target.closest('.card-wish');
     if(w){ MHC.toggleWish(w.dataset.id); w.classList.toggle('on'); return; }
     var q = e.target.closest('.quick-add');
     if(q){ MHC.addToCart(q.dataset.id, '40', 1); openDrawer(); return; }
+    var c = e.target.closest('.card-colors span');
+    if(c){ c.parentElement.querySelectorAll('span').forEach(function(x){x.classList.remove('on')}); c.classList.add('on'); return; }
   });
+
+  /* Sticky bag summary · aparece cuando hay items y usuaria scrollea */
+  var sb = document.createElement('div');
+  sb.className='stickybag';
+  sb.innerHTML = '<img src="" class="stickybag-thumb" id="sbThumb"><div class="stickybag-txt"><strong id="sbCount">0 items · $0</strong>Toca para ver</div><span class="stickybag-cta">Ver bolsa →</span>';
+  document.body.appendChild(sb);
+  sb.addEventListener('click', openDrawer);
+  function updateSticky(){
+    var items = MHC.cart();
+    if(!items.length){ sb.classList.remove('on'); return; }
+    if(window.scrollY < 400){ sb.classList.remove('on'); return; }
+    sb.classList.add('on');
+    document.getElementById('sbCount').textContent = MHC.cartCount()+' items · '+MHC.formatCLP(MHC.cartSubtotal());
+    var first = MHC.productById(items[0].id);
+    if(first) document.getElementById('sbThumb').src = first.img;
+  }
+  window.addEventListener('scroll', updateSticky, {passive:true});
+  document.addEventListener('mhc:state', updateSticky);
 
   /* Cart drawer */
   var drawer=document.getElementById('drawer'), mask=document.getElementById('drawerMask'),
