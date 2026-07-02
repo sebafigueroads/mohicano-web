@@ -69,6 +69,44 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 @keyframes blink{50%{opacity:.3}}
 .hero-tag-abs-r{position:absolute;bottom:24px;right:24px;color:var(--white);font-family:var(--f-mono);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;background:var(--acid);color:var(--ink);padding:8px 14px;border-radius:2px}
 
+/* HERO PRODUCT PANEL · sobre la imagen del hero */
+.hero-shop{padding:0 24px;margin-top:-2px;background:var(--bg)}
+.hero-shop-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:20px 0 40px}
+@media(max-width:1024px){.hero-shop-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.hero-shop-grid{grid-template-columns:1fr}}
+.hs-card{background:var(--white);border:2px solid var(--ink);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:.25s var(--ease)}
+.hs-card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink)}
+.hs-card.hero-featured{grid-column:span 2;flex-direction:row}
+@media(max-width:1024px){.hs-card.hero-featured{grid-column:span 2;flex-direction:column}}
+@media(max-width:640px){.hs-card.hero-featured{grid-column:span 1}}
+.hs-card .hs-img{aspect-ratio:4/5;overflow:hidden;background:var(--bg);position:relative;flex:0 0 auto}
+.hs-card.hero-featured .hs-img{flex:0 0 50%;aspect-ratio:auto}
+.hs-card .hs-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.hs-card:hover .hs-img img{transform:scale(1.03)}
+.hs-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:5px;z-index:2;align-items:flex-start}
+.hs-badges span{font-family:var(--f-mono);font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;color:var(--ink);background:var(--acid)}
+.hs-badges span.hot{background:var(--hot);color:var(--white)}
+.hs-live{position:absolute;bottom:10px;right:10px;font-family:var(--f-mono);font-size:.54rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;background:rgba(10,10,10,.72);color:var(--acid);z-index:2;display:flex;align-items:center;gap:5px}
+.hs-live::before{content:'';width:5px;height:5px;background:var(--acid);border-radius:50%;animation:blink 1.4s infinite}
+.hs-body{padding:14px 16px 16px;border-top:2px solid var(--ink);flex:1;display:flex;flex-direction:column;gap:10px}
+.hs-card.hero-featured .hs-body{border-top:0;border-left:2px solid var(--ink);justify-content:space-between}
+@media(max-width:1024px){.hs-card.hero-featured .hs-body{border-left:0;border-top:2px solid var(--ink)}}
+.hs-title{font-family:var(--f-display);font-size:1.4rem;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;color:var(--ink)}
+.hs-card.hero-featured .hs-title{font-size:2rem}
+.hs-meta{font-family:var(--f-mono);font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,10,10,.55)}
+.hs-price{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-weight:700}
+.hs-price .now{font-size:1.05rem}
+.hs-price .off{background:var(--ink);color:var(--acid);padding:3px 8px;font-size:.66rem;letter-spacing:.14em}
+.hs-price .was{color:rgba(10,10,10,.4);text-decoration:line-through;font-size:.78rem;font-weight:500}
+.hs-sizes{display:flex;gap:5px;flex-wrap:wrap}
+.hs-sz{width:36px;height:36px;background:transparent;border:2px solid var(--ink);font-family:var(--f-mono);font-size:.68rem;font-weight:600;cursor:pointer;transition:.15s ease}
+.hs-sz:hover:not(.sold){background:var(--acid)}
+.hs-sz.on{background:var(--ink);color:var(--acid)}
+.hs-sz.sold{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.hs-btn{margin-top:auto;padding:14px;background:var(--ink);color:var(--acid);border:0;font-family:var(--f-display);font-size:.94rem;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:.15s ease;text-align:center}
+.hs-btn:hover:not(:disabled){background:var(--acid);color:var(--ink)}
+.hs-btn:disabled{opacity:.5;cursor:not-allowed}
+
 /* COUNTDOWN DROP */
 .drop{padding:60px 24px;background:var(--ink);color:var(--white);position:relative;overflow:hidden}
 .drop::before{content:'MOHICANO ✦ DROP 43 ✦ ';font-family:var(--f-display);font-size:11rem;line-height:.8;color:rgba(255,255,255,.04);position:absolute;top:0;left:-2%;white-space:nowrap;pointer-events:none;letter-spacing:-.03em}
@@ -247,23 +285,62 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
 <main>
 
-<!-- HERO MONUMENTAL -->
+<!-- HERO MONUMENTAL · con producto destacado abajo -->
 <section class="hero">
   <div class="hero-mono">
     <h1 class="rv">MOHI<span class="stroke">CANO</span></h1>
     <h1 class="rv rv-d1">DROP <span class="red">43</span></h1>
     <div class="hero-meta rv rv-d2">
       <span>Colección<strong>Otoño 26</strong></span>
-      <span>Fecha lanzamiento<strong>25.07.2026</strong></span>
-      <span>Piezas totales<strong>10</strong></span>
-      <span>Vestido por<strong>+3.800 mujeres</strong></span>
+      <span>Lanzamiento<strong>Live now</strong></span>
+      <span>Piezas<strong>10</strong></span>
+      <span>Precio desde<strong>$44.991</strong></span>
     </div>
   </div>
-  <div class="hero-media rv rv-d2">
-    <img src="assets/campaigns/v2-bold-hero.jpg" alt="Drop 43 hero">
-    <div class="overlay"></div>
-    <div class="hero-tag-abs">Live now · Drop 43</div>
-    <div class="hero-tag-abs-r">Only in Chile</div>
+</section>
+
+<!-- HERO SHOP · panel 3 productos ATC directo -->
+<section class="hero-shop">
+  <div class="hero-shop-grid">
+    <article class="hs-card hero-featured">
+      <div class="hs-img">
+        <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Palazzo Rosie">
+        <div class="hs-badges"><span>Best</span><span class="hot">-10%</span></div>
+        <div class="hs-live">14 mirando</div>
+      </div>
+      <div class="hs-body">
+        <div>
+          <div class="hs-title">Palazzo Rosie</div>
+          <div class="hs-meta">Cintura alta · #4070-38</div>
+        </div>
+        <div class="hs-price"><span class="now">$48.591</span><span class="was">$53.990</span><span class="off">-10%</span></div>
+        <div>
+          <div class="hs-meta" style="margin-bottom:6px">Talla</div>
+          <div class="hs-sizes" data-pid="4070-38">
+            <button class="hs-sz" data-sz="36">36</button>
+            <button class="hs-sz" data-sz="38">38</button>
+            <button class="hs-sz" data-sz="40">40</button>
+            <button class="hs-sz" data-sz="42">42</button>
+            <button class="hs-sz sold" disabled>44</button>
+            <button class="hs-sz" data-sz="46">46</button>
+          </div>
+        </div>
+        <button class="hs-btn" data-pid="4070-38" disabled>Elige talla</button>
+      </div>
+    </article>
+
+    <article class="hs-card">
+      <div class="hs-img">
+        <img src="assets/products/skinny-agatha-4015-01.jpg" alt="Skinny Ágatha">
+        <div class="hs-badges"><span class="hot">Push Up</span></div>
+      </div>
+      <div class="hs-body">
+        <div class="hs-title">Skinny Ágatha</div>
+        <div class="hs-meta">Push Up patentado</div>
+        <div class="hs-price"><span class="now">$44.991</span><span class="was">$49.990</span><span class="off">-10%</span></div>
+        <button class="hs-btn quick-add" data-id="4015-01">+ Add to bag</button>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -427,6 +504,34 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   grid.addEventListener('click', function(e){
     var q = e.target.closest('.quick-add');
     if(q){ MHC.addToCart(q.dataset.id, '40', 1); openDrawer(); }
+  });
+
+  /* HERO SHOP · featured with size selector */
+  document.querySelectorAll('.hs-sizes').forEach(function(wrap){
+    var pid = wrap.dataset.pid;
+    var btn = document.querySelector('.hs-btn[data-pid="'+pid+'"]');
+    var sel = null;
+    wrap.addEventListener('click', function(e){
+      var s = e.target.closest('.hs-sz');
+      if(!s || s.classList.contains('sold')) return;
+      wrap.querySelectorAll('.hs-sz').forEach(function(x){x.classList.remove('on')});
+      s.classList.add('on');
+      sel = s.dataset.sz;
+      btn.disabled=false;
+      btn.textContent='+ Add · Talla '+sel;
+    });
+    if(btn){
+      btn.addEventListener('click', function(){
+        if(!sel) return;
+        MHC.addToCart(pid, sel, 1); openDrawer();
+      });
+    }
+  });
+  /* Quick-add card without size */
+  document.querySelectorAll('.hs-btn.quick-add').forEach(function(b){
+    b.addEventListener('click', function(){
+      MHC.addToCart(b.dataset.id, '40', 1); openDrawer();
+    });
   });
 
   document.querySelectorAll('.filter-chip').forEach(function(chip){

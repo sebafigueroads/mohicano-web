@@ -59,23 +59,80 @@ main,header,footer{position:relative;z-index:1}
 .nav-tools .badge{background:var(--sepia);color:var(--paper);font-family:var(--f-mono);font-size:.55rem;padding:2px 6px;border-radius:100px;letter-spacing:.08em;min-width:16px;text-align:center}
 @media(max-width:900px){ .nav{grid-template-columns:auto 1fr auto} .nav-links{display:none} .nav-tools > *:nth-child(-n+2){display:none} }
 
-/* HERO */
-.hero{padding:80px 32px 60px;position:relative;overflow:hidden}
-.hero-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:end;min-height:70vh}
-@media(max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:40px} }
-.hero-txt .kicker{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--sepia);margin-bottom:24px;display:inline-flex;align-items:center;gap:12px}
-.hero-txt .kicker::before{content:'';width:24px;height:1px;background:var(--sepia)}
-.hero-txt h1{font-family:var(--f-display);font-weight:300;font-size:clamp(2.6rem,7.5vw,6.5rem);color:var(--ink);margin-bottom:24px;max-width:14ch}
-.hero-txt h1 em{font-style:italic;color:var(--sepia)}
-.hero-txt p{font-family:var(--f-sans);font-weight:400;font-size:1.05rem;line-height:1.6;max-width:44ch;color:rgba(26,19,16,.72);margin-bottom:36px}
-.hero-cta{display:inline-flex;align-items:center;gap:12px;padding:18px 32px;background:var(--ink);color:var(--paper);border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;transition:.3s ease}
-.hero-cta:hover{background:var(--sepia)}
-.hero-cta svg{width:14px;height:14px}
+/* HERO ECOMMERCE · split imagen + panel producto */
+.hero{padding:40px 32px 40px;position:relative;overflow:hidden}
+.hero-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:stretch;min-height:76vh}
+@media(max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:24px} }
 
-.hero-img{position:relative;aspect-ratio:4/5;overflow:hidden}
+.hero-img{position:relative;overflow:hidden;background:var(--paper-2)}
 .hero-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
 .hero-img:hover img{transform:scale(1.03)}
-.hero-cap{position:absolute;bottom:24px;left:24px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.4);backdrop-filter:blur(10px);padding:8px 12px;border-radius:4px}
+.hero-img-tag{position:absolute;top:24px;left:24px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);background:var(--paper);padding:8px 14px;border-radius:100px;box-shadow:0 6px 20px rgba(0,0,0,.14)}
+.hero-img-tag::before{content:'';display:inline-block;width:6px;height:6px;background:var(--sepia);border-radius:50%;margin-right:8px;vertical-align:middle}
+.hero-img-cta{position:absolute;bottom:24px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:flex-end}
+.hero-img-headline{font-family:var(--f-display);font-weight:300;font-style:italic;font-size:clamp(2rem,4vw,3.4rem);line-height:.95;letter-spacing:-.02em;color:var(--paper);text-shadow:0 4px 20px rgba(0,0,0,.4);max-width:14ch}
+.hero-img-headline em{color:#f5c589}
+.hero-img-shop{background:var(--paper);color:var(--ink);padding:14px 22px;border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;transition:.3s ease}
+.hero-img-shop:hover{background:var(--sepia);color:var(--paper)}
+
+/* PANEL PRODUCTO DESTACADO */
+.hero-prod{background:var(--paper-2);border:1px solid var(--line);padding:32px 28px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.hero-prod::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--sepia)}
+.hp-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(26,19,16,.55)}
+.hp-head strong{color:var(--sepia)}
+.hp-photo{aspect-ratio:1;background:var(--paper);overflow:hidden;position:relative;margin:6px 0}
+.hp-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.hp-photo:hover img{transform:scale(1.03)}
+.hp-photo-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px}
+.hp-photo-badges span{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 8px;background:var(--ink);color:var(--paper);border-radius:2px}
+.hp-photo-badges span.push{background:var(--indigo)}
+.hp-photo-live{position:absolute;bottom:12px;right:12px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);font-family:var(--f-mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:100px;color:var(--ink);display:flex;align-items:center;gap:6px}
+.hp-photo-live::before{content:'';width:6px;height:6px;background:var(--sepia);border-radius:50%;animation:hpLive 1.6s infinite}
+@keyframes hpLive{50%{opacity:.3}}
+.hp-name{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.6rem;color:var(--ink);letter-spacing:-.018em;line-height:1.1}
+.hp-subtitle{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,19,16,.55)}
+.hp-reviews{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.66rem;color:rgba(26,19,16,.6)}
+.hp-reviews .st{color:var(--sepia);letter-spacing:.02em;font-size:.86rem}
+.hp-price{display:flex;align-items:baseline;gap:10px;font-family:var(--f-sans)}
+.hp-price .now{font-weight:600;font-size:1.4rem;color:var(--ink)}
+.hp-price .was{color:rgba(26,19,16,.4);text-decoration:line-through;font-size:.95rem}
+.hp-price .off{background:var(--sepia);color:var(--paper);font-family:var(--f-mono);font-size:.6rem;padding:3px 8px;border-radius:2px;letter-spacing:.14em;text-transform:uppercase}
+.hp-sizes-l{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,19,16,.55);margin-bottom:6px;display:flex;justify-content:space-between}
+.hp-sizes-l a{color:var(--sepia);text-decoration:underline}
+.hp-sizes{display:flex;gap:6px;flex-wrap:wrap}
+.hp-sz{width:44px;height:44px;background:var(--paper);border:1px solid rgba(26,19,16,.14);border-radius:50%;display:grid;place-items:center;cursor:pointer;font-family:var(--f-mono);font-size:.72rem;color:var(--ink);transition:.2s ease;position:relative}
+.hp-sz:hover{border-color:var(--ink)}
+.hp-sz.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hp-sz.sold{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.hp-sz.low::after{content:'!';position:absolute;top:-4px;right:-4px;width:14px;height:14px;background:var(--sepia);color:var(--paper);border-radius:50%;font-size:.5rem;line-height:14px;font-weight:700}
+.hp-btn{margin-top:auto;padding:18px;background:var(--ink);color:var(--paper);border-radius:100px;font-family:var(--f-mono);font-weight:600;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:.3s ease;border:0;width:100%}
+.hp-btn:hover:not(:disabled){background:var(--sepia)}
+.hp-btn:disabled{opacity:.5;cursor:not-allowed}
+.hp-btn:disabled::after{content:' · elige talla'}
+.hp-perks{display:flex;gap:14px;justify-content:space-between;padding-top:8px;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,19,16,.55);text-align:center}
+.hp-perks span{flex:1;display:flex;flex-direction:column;gap:4px}
+.hp-perks span::before{content:'';width:14px;height:14px;background:var(--sepia);border-radius:50%;margin:0 auto;opacity:.65}
+
+/* Rail NUEVO ESTA SEMANA · directamente debajo del hero */
+.hero-rail{padding:20px 32px 60px;background:var(--paper);border-bottom:1px solid var(--line)}
+.hero-rail-inner{max-width:1400px;margin:0 auto}
+.hero-rail-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:14px}
+.hero-rail-h h3{font-family:var(--f-display);font-weight:400;font-style:italic;font-size:1.4rem;color:var(--ink);letter-spacing:-.02em}
+.hero-rail-h h3 em{color:var(--sepia)}
+.hero-rail-h a{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--sepia);padding-bottom:2px}
+.hero-rail-track{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.hero-rail-track::-webkit-scrollbar{display:none}
+.hr-card{flex:0 0 200px;background:var(--paper-2);border:1px solid var(--line);cursor:pointer;transition:.3s var(--ease);position:relative}
+.hr-card:hover{transform:translateY(-3px);border-color:var(--sepia)}
+.hr-card-img{aspect-ratio:1;background:var(--paper-2);overflow:hidden;position:relative}
+.hr-card-img img{width:100%;height:100%;object-fit:cover}
+.hr-card-img .b{position:absolute;top:8px;left:8px;font-family:var(--f-mono);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 6px;border-radius:2px}
+.hr-card-b{padding:12px 12px 14px}
+.hr-card-n{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:.94rem;color:var(--ink);letter-spacing:-.015em;margin-bottom:6px;line-height:1.15}
+.hr-card-p{display:flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;font-weight:500;color:var(--ink)}
+.hr-card-p .w{color:rgba(26,19,16,.35);text-decoration:line-through;font-size:.62rem}
+.hr-card-b button{margin-top:8px;width:100%;padding:8px;background:transparent;border:1px solid var(--ink);border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:var(--ink);transition:.2s ease}
+.hr-card-b button:hover{background:var(--ink);color:var(--paper)}
 
 /* NÚMEROS */
 .numbers{padding:60px 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -337,22 +394,63 @@ main,header,footer{position:relative;z-index:1}
 
 <main>
 
-<!-- HERO -->
+<!-- HERO ECOMMERCE -->
 <section class="hero">
   <div class="hero-grid">
-    <div class="hero-txt">
-      <div class="kicker rv">Colección 43 · Otoño 2026</div>
-      <h1 class="rv rv-d1">El <em>calce</em> que otras no <em>alcanzan</em>.</h1>
-      <p class="rv rv-d2">27 años cortando, cosiendo y lavando denim en Chile. Cada curva pensada, cada bota probada en más de 3.000 mujeres. La Colección 43 es todo lo que aprendimos, en un otoño.</p>
-      <a href="#col-43" class="hero-cta rv rv-d3">
-        Ver Colección 43
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+    <div class="hero-img rv">
+      <img src="assets/campaigns/v1-heritage-hero.jpg" alt="Colección 43">
+      <div class="hero-img-tag">Nueva Colección 43</div>
+      <div class="hero-img-cta">
+        <div class="hero-img-headline">Otoño <em>2026</em>.<br>Ya disponible.</div>
+        <a href="#col-43" class="hero-img-shop">Ver todo →</a>
+      </div>
     </div>
-    <div class="hero-img rv rv-d2">
-      <img src="assets/campaigns/v1-heritage-hero.jpg" alt="Colección 43 · Otoño 2026">
-      <div class="hero-cap">Editorial · Colección 43</div>
+    <div class="hero-prod rv rv-d1">
+      <div class="hp-head"><span>Destacado de la semana</span><strong>-10%</strong></div>
+      <div class="hp-photo">
+        <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Palazzo Rosie">
+        <div class="hp-photo-badges"><span>Best</span></div>
+        <div class="hp-photo-live">14 mirando ahora</div>
+      </div>
+      <div>
+        <div class="hp-name">Palazzo <em>Rosie</em></div>
+        <div class="hp-subtitle">Cintura alta · Bota Palazzo · #4070-38</div>
+      </div>
+      <div class="hp-reviews"><span class="st">★★★★★</span> 5.0 · 237 reseñas</div>
+      <div class="hp-price">
+        <span class="now">$48.591</span>
+        <span class="was">$53.990</span>
+        <span class="off">-10%</span>
+      </div>
+      <div>
+        <div class="hp-sizes-l"><span>Talla</span><a href="#">Tabla de tallas ↗</a></div>
+        <div class="hp-sizes" id="hpSizes">
+          <button class="hp-sz" data-sz="36">36</button>
+          <button class="hp-sz" data-sz="38">38</button>
+          <button class="hp-sz low" data-sz="40">40</button>
+          <button class="hp-sz" data-sz="42">42</button>
+          <button class="hp-sz" data-sz="44">44</button>
+          <button class="hp-sz sold" disabled>46</button>
+        </div>
+      </div>
+      <button class="hp-btn" id="hpAdd" disabled>Añadir a la bolsa</button>
+      <div class="hp-perks">
+        <span>Envío gratis $49k+</span>
+        <span>Cambios 30 días</span>
+        <span>3 cuotas s/interés</span>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- HERO RAIL · Nuevo esta semana -->
+<section class="hero-rail">
+  <div class="hero-rail-inner">
+    <div class="hero-rail-h">
+      <h3>Nuevo <em>esta semana</em> · 6 modelos</h3>
+      <a href="#col-43">Ver todos los nuevos →</a>
+    </div>
+    <div class="hero-rail-track" id="heroRail"></div>
   </div>
 </section>
 
@@ -674,6 +772,42 @@ main,header,footer{position:relative;z-index:1}
     if(q){ MHC.addToCart(q.dataset.id, '40', 1); openDrawer(); return; }
     var c = e.target.closest('.card-colors span');
     if(c){ c.parentElement.querySelectorAll('span').forEach(function(x){x.classList.remove('on')}); c.classList.add('on'); return; }
+  });
+
+  /* HERO PRODUCT · size selector + add-to-bag */
+  (function(){
+    var hpAdd = document.getElementById('hpAdd');
+    var selectedSize = null;
+    document.getElementById('hpSizes').addEventListener('click', function(e){
+      var b = e.target.closest('.hp-sz');
+      if(!b || b.classList.contains('sold')) return;
+      document.querySelectorAll('.hp-sz').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      selectedSize = b.dataset.sz;
+      hpAdd.disabled = false;
+      hpAdd.textContent = 'Añadir · Talla '+selectedSize;
+    });
+    hpAdd.addEventListener('click', function(){
+      if(!selectedSize) return;
+      MHC.addToCart('4070-38', selectedSize, 1);
+      openDrawer();
+    });
+  })();
+
+  /* HERO RAIL · Nuevo esta semana */
+  var heroRail = document.getElementById('heroRail');
+  D.products.filter(function(p){return p.isNew}).forEach(function(p){
+    var pctOff = Math.round((1 - p.price/p.priceWas)*100);
+    var card = document.createElement('article');
+    card.className='hr-card';
+    card.innerHTML =
+      '<div class="hr-card-img"><span class="b">Nuevo</span><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"></div>'+
+      '<div class="hr-card-b">'+
+        '<div class="hr-card-n">'+p.name+'</div>'+
+        '<div class="hr-card-p">'+MHC.formatCLP(p.price)+'<span class="w">'+MHC.formatCLP(p.priceWas)+'</span></div>'+
+        '<button data-id="'+p.id+'" class="quick-add">+ Añadir</button>'+
+      '</div>';
+    heroRail.appendChild(card);
   });
 
   /* Sticky bag summary · aparece cuando hay items y usuaria scrollea */

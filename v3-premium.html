@@ -52,17 +52,60 @@ h1,h2,h3{font-family:var(--f-display);font-variation-settings:"opsz" 144;font-we
 .nav-r .dot{width:6px;height:6px;background:var(--gold);border-radius:50%}
 @media(max-width:900px){ .nav-l{display:none} .nav{grid-template-columns:auto 1fr auto;padding:18px 22px} }
 
-/* HERO cinematic */
-.hero{height:100vh;position:relative;overflow:hidden}
-.hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.85)}
-.hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.35) 0%,transparent 30%,transparent 60%,rgba(5,5,5,.95) 100%),radial-gradient(ellipse 60% 50% at 50% 50%,transparent,rgba(5,5,5,.35))}
-.hero-content{position:absolute;inset:0;z-index:2;padding:120px 40px 100px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;max-width:1400px;margin:0 auto}
-.hero-tag{font-family:var(--f-mono);font-weight:400;font-size:.66rem;letter-spacing:.44em;text-transform:uppercase;color:var(--gold);margin-bottom:36px;display:inline-flex;align-items:center;gap:14px}
-.hero-tag::before{content:'';width:36px;height:1px;background:var(--gold)}
-.hero h1{font-family:var(--f-display);font-weight:200;font-style:italic;font-size:clamp(3rem,10vw,10rem);color:var(--paper);letter-spacing:-.045em;line-height:.9;max-width:16ch;margin-bottom:36px}
+/* HERO SPLIT ECOMMERCE · imagen cinematic + panel de producto */
+.hero{padding:100px 40px 60px;position:relative;background:var(--ink)}
+.hero-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;min-height:78vh}
+@media(max-width:1024px){.hero-grid{grid-template-columns:1fr;gap:20px;min-height:auto}}
+.hero-media{position:relative;overflow:hidden;background:#050505;border:1px solid var(--line)}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:brightness(.7) saturate(.9);transition:transform 1.6s var(--ease)}
+.hero-media:hover img{transform:scale(1.03)}
+.hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.15) 0%,transparent 40%,rgba(5,5,5,.85) 100%);pointer-events:none}
+.hero-content{position:absolute;bottom:32px;left:32px;right:32px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.hero-content-l{max-width:60%}
+.hero-tag{font-family:var(--f-mono);font-weight:400;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:inline-flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero h1{font-family:var(--f-display);font-weight:200;font-style:italic;font-size:clamp(2.2rem,4.8vw,4.8rem);color:var(--paper);letter-spacing:-.03em;line-height:.95;max-width:16ch;text-shadow:0 4px 30px rgba(0,0,0,.5)}
 .hero h1 .b{font-weight:400;font-style:normal;color:var(--gold)}
-.hero-sub{font-family:var(--f-sans);font-weight:300;font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.5;color:var(--paper-mut);max-width:52ch;margin-bottom:48px}
+.hero-explore{white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:16px 28px;background:var(--paper);color:var(--ink);border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;transition:.3s ease}
+.hero-explore:hover{background:var(--gold)}
+
+/* PANEL PRODUCTO */
+.hero-prod{background:var(--ink-2);border:1px solid var(--line-strong);padding:28px 26px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.hero-prod::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hp-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--paper-mut)}
+.hp-head strong{color:var(--gold);font-family:var(--f-display);font-style:italic;font-weight:300;font-size:1rem;letter-spacing:-.02em;text-transform:none}
+.hp-photo{aspect-ratio:1;background:#050505;overflow:hidden;position:relative;margin:4px 0}
+.hp-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.hp-photo:hover img{transform:scale(1.04)}
+.hp-photo .live{position:absolute;top:12px;right:12px;background:rgba(5,5,5,.7);backdrop-filter:blur(10px);border:1px solid rgba(197,168,120,.3);font-family:var(--f-mono);font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;padding:5px 10px;border-radius:100px;color:var(--gold);display:flex;align-items:center;gap:6px}
+.hp-photo .live::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:hpBlink 2s infinite}
+@keyframes hpBlink{50%{opacity:.3}}
+.hp-photo .thumbs{position:absolute;bottom:12px;left:12px;display:flex;gap:5px}
+.hp-photo .thumbs span{width:6px;height:6px;background:rgba(232,220,196,.4);border-radius:50%;transition:.2s ease}
+.hp-photo .thumbs span.on{background:var(--gold);width:20px;border-radius:100px}
+.hp-name{font-family:var(--f-display);font-weight:200;font-style:italic;font-size:1.7rem;color:var(--paper);letter-spacing:-.02em;line-height:1.1}
+.hp-meta{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper-mut)}
+.hp-reviews{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.62rem;color:var(--paper-mut)}
+.hp-reviews .st{color:var(--gold);font-size:.86rem;letter-spacing:.02em}
+.hp-price{display:flex;align-items:baseline;gap:10px;font-family:var(--f-sans)}
+.hp-price .now{font-weight:400;font-size:1.35rem;color:var(--paper)}
+.hp-price .was{color:rgba(232,220,196,.35);text-decoration:line-through;font-size:.85rem}
+.hp-sizes-l{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper-mut);margin-bottom:6px;display:flex;justify-content:space-between}
+.hp-sizes-l a{color:var(--gold);text-decoration:underline}
+.hp-sizes{display:flex;gap:5px;flex-wrap:wrap}
+.hp-sz{width:38px;height:38px;background:transparent;border:1px solid var(--line-strong);color:var(--paper);border-radius:50%;font-family:var(--f-mono);font-size:.66rem;cursor:pointer;transition:.2s ease;position:relative;display:grid;place-items:center}
+.hp-sz:hover{border-color:var(--gold);color:var(--gold)}
+.hp-sz.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.hp-sz.sold{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.hp-sz.low::after{content:'!';position:absolute;top:-3px;right:-3px;width:12px;height:12px;background:var(--gold);color:var(--ink);border-radius:50%;font-size:.44rem;line-height:12px;font-weight:700}
+.hp-btn{margin-top:auto;padding:18px;background:var(--paper);color:var(--ink);border:0;border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;transition:.3s var(--ease)}
+.hp-btn:hover:not(:disabled){background:var(--gold)}
+.hp-btn:disabled{opacity:.4;cursor:not-allowed}
+.hp-perks{display:flex;gap:14px;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-mut);text-align:center}
+.hp-perks span{flex:1;display:flex;flex-direction:column;gap:3px}
+.hp-perks span strong{color:var(--gold);font-family:var(--f-display);font-style:italic;font-weight:300;font-size:.9rem;letter-spacing:-.01em;text-transform:none}
+
+.hero-scroll{display:none}
 .hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:14px;padding:22px 40px;border-radius:100px;font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;transition:.4s var(--ease);border:1px solid transparent}
 .btn-primary{background:var(--paper);color:var(--ink)}
@@ -313,23 +356,55 @@ h1,h2,h3{font-family:var(--f-display);font-variation-settings:"opsz" 144;font-we
 
 <main>
 
-<!-- HERO CINEMATIC -->
+<!-- HERO SPLIT ECOMMERCE -->
 <section class="hero">
-  <div class="hero-media">
-    <img src="assets/campaigns/v3-premium-hero.jpg" alt="House of Mohicano · Colección 43">
-  </div>
-  <div class="hero-content">
-    <div class="hero-tag">Colección 43 · Otoño / Invierno 2026</div>
-    <h1><em>Denim</em> como <em>arquitectura</em> del cuerpo.</h1>
-    <p class="hero-sub">Un atelier de denim en Santiago desde 1999. Cortamos, cosemos y lavamos cada pieza en nuestra planta — la primera de Chile en incorporar tecnología sustentable Tonello. Cada Mohicano es una construcción sobre tu curva.</p>
-    <div class="hero-actions">
-      <a href="#pieces" class="btn btn-primary">Explorar la colección
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#atelier" class="btn btn-ghost">Ver el atelier</a>
+  <div class="hero-grid">
+    <div class="hero-media">
+      <img src="assets/campaigns/v3-premium-hero.jpg" alt="Colección 43">
+      <div class="hero-content">
+        <div class="hero-content-l">
+          <div class="hero-tag">Colección 43 · Otoño 26</div>
+          <h1><em>Denim</em> como<br><span class="b">arquitectura</span>.</h1>
+        </div>
+        <a href="#pieces" class="hero-explore">Ver colección →</a>
+      </div>
     </div>
+
+    <aside class="hero-prod">
+      <div class="hp-head"><span>Featured piece · 43.01</span><strong>Palazzo Rosie</strong></div>
+      <div class="hp-photo">
+        <img src="assets/products/palazzo-rosie-4070-38.jpg" alt="Palazzo Rosie">
+        <div class="live">14 mirando</div>
+        <div class="thumbs"><span class="on"></span><span></span><span></span><span></span></div>
+      </div>
+      <div>
+        <div class="hp-name">Palazzo <em style="color:var(--gold);font-style:italic">Rosie</em></div>
+        <div class="hp-meta">Cintura alta · #4070-38 · Soft Rotterdam</div>
+      </div>
+      <div class="hp-reviews"><span class="st">★★★★★</span> 5.0 · 237 reseñas</div>
+      <div class="hp-price">
+        <span class="now">$48.591</span>
+        <span class="was">$53.990</span>
+      </div>
+      <div>
+        <div class="hp-sizes-l"><span>Talla</span><a href="#">Fit finder ↗</a></div>
+        <div class="hp-sizes" id="hpSizes">
+          <button class="hp-sz" data-sz="36">36</button>
+          <button class="hp-sz" data-sz="38">38</button>
+          <button class="hp-sz low" data-sz="40">40</button>
+          <button class="hp-sz" data-sz="42">42</button>
+          <button class="hp-sz" data-sz="44">44</button>
+          <button class="hp-sz sold" disabled>46</button>
+        </div>
+      </div>
+      <button class="hp-btn" id="hpAdd" disabled>Elige tu talla</button>
+      <div class="hp-perks">
+        <span><strong>Free</strong>Envío desde $49k</span>
+        <span><strong>30d</strong>Cambios sin costo</span>
+        <span><strong>3×</strong>Sin interés</span>
+      </div>
+    </aside>
   </div>
-  <div class="hero-scroll">Scroll<span class="l"></span></div>
 </section>
 
 <!-- MANIFESTO -->
@@ -653,6 +728,29 @@ h1,h2,h3{font-family:var(--f-display);font-variation-settings:"opsz" 144;font-we
       dropsTrack.scrollBy({left:parseInt(btn.dataset.dir)*320, behavior:'smooth'});
     });
   });
+
+  /* HERO PRODUCT · size selector + add-to-bag */
+  (function(){
+    var hpAdd = document.getElementById('hpAdd');
+    var wrap = document.getElementById('hpSizes');
+    if(!hpAdd || !wrap) return;
+    var selectedSize = null;
+    wrap.addEventListener('click', function(e){
+      var b = e.target.closest('.hp-sz');
+      if(!b || b.classList.contains('sold')) return;
+      wrap.querySelectorAll('.hp-sz').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      selectedSize = b.dataset.sz;
+      hpAdd.disabled = false;
+      hpAdd.textContent = 'Añadir · Talla '+selectedSize;
+    });
+    hpAdd.addEventListener('click', function(){
+      if(!selectedSize) return;
+      MHC.addToCart('4070-38', selectedSize, 1);
+      MHC.trackView('4070-38');
+      openDrawer();
+    });
+  })();
 
   /* Recently viewed · muestra los últimos productos con los que se interactuó, sino los 4 más vistos */
   var recentGrid = document.getElementById('recentGrid');
